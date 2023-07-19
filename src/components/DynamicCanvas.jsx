@@ -32,9 +32,7 @@ export default function DynamicCanvas() {
         </ RenderInView>
         </div>   
         <div className="bg-about-pattern bg-cover bg-no-repeat bg-center">
-        <RenderInView>
           <Tech />
-          </ RenderInView>
         </div>
         <div className="bg-ip-pattern bg-cover bg-no-repeat bg-center">
         <RenderInView>
