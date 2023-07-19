@@ -1,6 +1,6 @@
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech} from '@/components';
+import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, RenderInView} from '@/components';
 
-export default function Main() {
+export default function DynamicCanvas() {
   const myStyleMobile = {
     top: 0,
     left: 0,
@@ -17,19 +17,29 @@ export default function Main() {
           <Hero />
         </div>
         <div className="bg-great-pattern bg-cover bg-no-repeat bg-center">
+          <RenderInView>
           <Contact />
+          </RenderInView>
         </div>
         <div className="bg-chicken-pattern bg-cover bg-no-repeat bg-center">
+        <RenderInView>
           <About />
+          </ RenderInView>
         </div>
         <div className="bg-head-pattern bg-cover bg-no-repeat bg-center">
+        <RenderInView>
         <Experience style={myStyleMobile}/>    
+        </ RenderInView>
         </div>   
         <div className="bg-about-pattern bg-cover bg-no-repeat bg-center">
+        <RenderInView>
           <Tech />
+          </ RenderInView>
         </div>
         <div className="bg-ip-pattern bg-cover bg-no-repeat bg-center">
+        <RenderInView>
           <Feedbacks />
+          </ RenderInView>
         </div>
         <div className="relative z-0">
         </div>

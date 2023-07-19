@@ -103,10 +103,9 @@ const Contact = () => {
     }
   }, [])
 
-
   return (
     <div style={{height: 1000}}> 
-      <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}}>
+      <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}}> 
         <div className="absolute">
           <h1 style={isMobile ? mystyleMobile : mystyle}>About Me</h1>
           <h1 style={isMobile ? middleStyleMobile : middleStyle}>My name is Roger Ding, I'm a student at UW Madison.</h1>
@@ -114,10 +113,11 @@ const Contact = () => {
           <h1 style={isMobile ? thirdStyleMobile : thirdStyle}>Thanks for stopping by!</h1>
         </div>
         <HistoryCanvas />
-      </div>  
+      </div> 
     </div>
 
   )
 }
 
+//inView && 
 export default Contact
