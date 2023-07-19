@@ -1,0 +1,23 @@
+# 
+# Wavefront material file
+# Converted by the DEEP Exploration  Deep Exploration 6.5 x64 6.5.0.9182
+# Right Hemisphere, LTD
+# http://www.righthemisphere.com/
+# 
+
+newmtl soap_bubble1
+Ka 0.00392157 0.00392157 0.00392157
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 64
+d 0.07
+map_Kd soap_bubbles1_diffuse.png
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS soap_bubbles1_diffuse.png
+map_kA 
+map_Ns 

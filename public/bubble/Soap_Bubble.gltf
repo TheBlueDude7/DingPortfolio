@@ -1,0 +1,251 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "TurboSquid Stem Converter v1.0.0"
+  },
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 1284,
+      "type": "VEC3",
+      "max": [
+        6.224496841430664,
+        6.228988170623779,
+        6.227601051330566
+      ],
+      "min": [
+        -6.224496364593506,
+        -6.228990077972412,
+        -6.227602005004883
+      ]
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 1284,
+      "type": "VEC3",
+      "max": [
+        0.998254120349884,
+        0.9997475147247314,
+        0.9995856881141663
+      ],
+      "min": [
+        -0.9982537627220154,
+        -0.9997475743293762,
+        -0.9995856881141663
+      ]
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 1284,
+      "type": "VEC2",
+      "max": [
+        0.9857001304626465,
+        0.9851410984992981
+      ],
+      "min": [
+        0.014858902432024479,
+        0.01155698299407959
+      ]
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 0,
+      "componentType": 5123,
+      "count": 7200,
+      "type": "SCALAR",
+      "max": [
+        1283.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 55488,
+      "uri": "Soap_Bubble.bin"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 15408,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 15408,
+      "byteLength": 15408,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 30816,
+      "byteLength": 10272,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 41088,
+      "byteLength": 14400,
+      "target": 34963
+    }
+  ],
+  "materials": [
+    {
+      "name": "bubble",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      },
+      "alphaMode": "BLEND",
+      "occlusionTexture": {
+        "index": 1
+      },
+      "normalTexture": {
+        "index": 2
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "bubble7",
+      "primitives": [
+        {
+          "mode": 4,
+          "material": 0,
+          "indices": 3,
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          }
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "Soap_Bubble_$_Translation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        6.276132106781006,
+        -0.0,
+        1.0
+      ],
+      "children": [
+        2
+      ]
+    },
+    {
+      "name": "Soap_Bubble_$_PreRotation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.371138828673793e-08,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        -4.371138828673793e-08,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "children": [
+        3
+      ]
+    },
+    {
+      "name": "Soap_Bubble",
+      "children": [
+        4
+      ]
+    },
+    {
+      "name": "node",
+      "children": [
+        5
+      ]
+    },
+    {
+      "name": "bubble7",
+      "mesh": 0
+    }
+  ],
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "scene": 0,
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/baseColor.png"
+    },
+    {
+      "uri": "textures/occlusionRoughnessMetallic.jpg"
+    },
+    {
+      "uri": "textures/normal.png"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}
