@@ -222,9 +222,9 @@
 }
 
 .channelStyle {
-  position: absolute;
-  top: 80vh;
-  left: -70vh;
+  position: relative;
+  top: 65vh;
+  left: -60vh;
   font-size: 20px;
   font-weight: bold;
   text-shadow: 4px 4px 5px black;
@@ -232,7 +232,7 @@
 }
 
 .channelStyleMobile {
-  position: absolute;
+  position: relative;
   top: 70vh;
   left: 0vh;
   font-size: 15px;
@@ -246,8 +246,8 @@
 }
 
 .middleStyle {
-  position: absolute;
-  top: 90vh;
+  position: relative;
+  top: 70vh;
   left: 0vh;
   font-size: 20px;
   font-weight: bold;
@@ -270,9 +270,9 @@ body {
 
 
 .rightStyle {
-  position: absolute;
-  top: 80vh;
-  right: -50vh;
+  position: relative;
+  top: 58vh;
+  right: -60vh;
   font-size: 20px;
   font-weight: bold;
   text-shadow: 4px 4px 5px black;

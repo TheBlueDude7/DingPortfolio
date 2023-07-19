@@ -23,9 +23,9 @@ const Experience = () => {
   }, [])
 
   const amazonStyle = {
-    position: "absolute",
-    top: "40vh",
-    left: "-5vh",
+    position: "relative",
+    top: "30vh",
+    left: "-20vh",
     color: "white",
     "font-size": "20px",
     "font-weight": "bold",
@@ -34,9 +34,9 @@ const Experience = () => {
   }
 
   const rogerDingWeb = {
-    position: "absolute",
-    top: "40vh",
-    right: "-5vh",
+    position: "relative",
+    top: "30vh",
+    right: "-35vh",
     color: "white",
     "font-size": "25px",
     "font-weight": "bold",
@@ -45,13 +45,12 @@ const Experience = () => {
   }
 
   const practiceFusionLink = {
-    position: "absolute",
-    top: "80vh",
-    right: "-5vh",
     "font-size": "20px",
     "font-weight": "bold",
     "text-shadow": "10px 2px 9px black",
-    "text-align": "center"
+    position: "relative",
+    top: "65vh",
+    right: "-5vw" 
 
   }
 
@@ -72,9 +71,9 @@ const Experience = () => {
   };
 
   const channelStyle = {
-    position: "absolute",
-    top: "80vh",
-    left: "-5vh",
+    position: "relative",
+    top: "65vh",
+    left: "10vh",
     "font-size": "25px",
     "font-weight": "bold",
     "text-shadow": "10px 2px 10px black",

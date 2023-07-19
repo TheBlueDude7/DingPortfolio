@@ -18,12 +18,12 @@ export default function DynamicCanvas() {
         </div>
         <div className="bg-great-pattern bg-cover bg-no-repeat bg-center">
           <RenderInView>
-          <Contact />
+          <About />
           </RenderInView>
         </div>
         <div className="bg-chicken-pattern bg-cover bg-no-repeat bg-center">
         <RenderInView>
-          <About />
+          <Tech />
           </ RenderInView>
         </div>
         <div className="bg-head-pattern bg-cover bg-no-repeat bg-center">
@@ -32,11 +32,11 @@ export default function DynamicCanvas() {
         </ RenderInView>
         </div>   
         <div className="bg-about-pattern bg-cover bg-no-repeat bg-center">
-          <Tech />
+          <Feedbacks />
         </div>
         <div className="bg-ip-pattern bg-cover bg-no-repeat bg-center">
         <RenderInView>
-          <Feedbacks />
+          <Contact />
           </ RenderInView>
         </div>
         <div className="relative z-0">

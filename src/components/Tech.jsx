@@ -1,12 +1,15 @@
-import { React, useState, useEffect } from 'react'
-import { BubblesCanvas } from "./canvas"
-import { chickenSirenCanvas } from "./canvas"
-import { styles } from '../styles';
+import { motion } from 'framer-motion';
+import { styles } from "../styles";
+import { useState, useEffect } from "react"
+import { ChickensCanvas } from "./canvas"
+import { EarthCanvas } from "./canvas"
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { TextureLoader } from 'three/src/loaders/TextureLoader'
+
+
 
 const Tech = () => {
-  const [channelStyleChange, setChannelStyle] = useState("channelStyle");
-  const [midStyleChange, setMidStyle] = useState("middleStyle");
-  const [rightStyleChange, setRightStyle] = useState("rightStyle");
+  
   const [isMobile, setMobile] = useState(false);
 
   useEffect(() => {
@@ -21,123 +24,67 @@ const Tech = () => {
     }
   }, [])
 
-  useEffect(() => {
-      if(isMobile) {
-        setChannelStyle("channelStyleMobile");
-        setMidStyle("middleStyleMobile");
-        setRightStyle("rightStyleMobile");
-      } else {
-        setChannelStyle("channelStyle");
-        setMidStyle("middleStyle");
-        setRightStyle("rightStyle");
-      }
-  }, [isMobile])
-
-  const [hidden, setHidden] = useState(false);
-
-  function hideText() {
-    setHidden(true);
-  }
-  const myStyle = {
-    height: "1000px"
-  };
-
-  const bigText = {
+  const mystyle = {
     color: "white",
     "font-size": "60px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
     "text-align": "center"
-  }
+  };
 
-  const channelStyleHide = {
-    position: "absolute",
-    top: "80vh",
-    left: "-70vh",
+  const descriptionStyle = {
+    color: "white",
     "font-size": "20px",
     "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center",
-    "visibility": "hidden"
-  }
-
-  //Second Text
-  const middleStyle = {
-    position: "absolute",
-    top: "90vh",
-    left: "0vh",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
+    "text-shadow": "10px 2px 9px black",
     "text-align": "center"
+  };
+
+  const lowerTextStyle = {
+    position: "absolute",
+    marginTop: "900px"
   }
 
-  //Star text
-  const rightStyle = {
-    position: "absolute",
-    top: "80vh",
-    right: "-50vh",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
-  }
-
-   //TextWhatOtherPeople
-   const otherPeopleText = {
-    position: "absolute",
-    "font-size": "18px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
+  const textStyle = {
+    color: "white",
     "text-align": "center"
   }
 
 
-  //Mobile Formatting
+  //Mobile Styles
 
-  const bigTextMobile = {
+  const myStyleMobile = {
     color: "white",
     "font-size": "40px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
     "text-align": "center"
-  }
+  };
 
-  const otherPeopleTextMobile = {
-    position: "absolute",
-    "font-size": "14px",
+  const descriptionStyleMobile = {
+    color: "white",
+    "font-size": "16px",
     "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
+    "text-shadow": "10px 2px 9px black",
     "text-align": "center"
-  }
+  };
 
-  const channelStyleMobile = {
-    position: "absolute",
-    top: "80vh",
-    left: "-70vh",
-    "font-size": "10px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
-  }
+
   return (
-   
-    <section className="relative w-full h-screen mx-auto" >
+    <div>
       <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}}>
-      <BubblesCanvas setHidden={hideText}/>
+      <ChickensCanvas />
+      <EarthCanvas />
       <div className="absolute">
-        <h1 style={isMobile ? bigTextMobile : bigText}>Feedback</h1>
-        <h1 style={isMobile ? otherPeopleTextMobile : otherPeopleText}>See what other people have to say about my work!</h1>
-        <h1 className={hidden ? "hiddenText" : channelStyleChange}>Roger did great work with my website! - Leanza Liu</h1>
-        <h1 className={hidden ? "hiddenText" : midStyleChange} >Roger? He's amazing, and efficient! - David Ding</h1>
-        <h1 className={hidden ? "hiddenText" : rightStyleChange} >⭐⭐⭐⭐⭐! - Brandon West</h1>
-       
-       
+        <h1 style={isMobile ? myStyleMobile : mystyle}>Skills</h1>
+        <h1 style={isMobile ? descriptionStyleMobile : descriptionStyle}>Check out below to see the languages and software I know! Hover over each orb to learn - wait, what? Oh...</h1>
+        
       </div>
+      <div style={lowerTextStyle}>
+        <h1 style={isMobile ? descriptionStyleMobile : descriptionStyle}>Sorry about that, these feathery fellas are an amazing help... but - that happens sometimes, I don't think we're getting those back.</h1>
       </div>
-    </section>
-      
-      
+    </div>
+    </div>
   )
 }
 

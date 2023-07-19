@@ -18,19 +18,19 @@ const App = () => {
           <Hero />
         </div>
         <div className="bg-great-pattern bg-cover bg-no-repeat bg-center">
-          <Contact />
-        </div>
-        <div className="bg-chicken-pattern bg-cover bg-no-repeat bg-center">
           <About />
         </div>
-        <div className="bg-head-pattern bg-cover bg-no-repeat bg-center">
-        <Experience style={myStyleMobile}/>    
-        </div>   
-        <div className="bg-about-pattern bg-cover bg-no-repeat bg-center">
+        <div className="bg-chicken-pattern bg-cover bg-no-repeat bg-center">
           <Tech />
         </div>
-        <div className="bg-ip-pattern bg-cover bg-no-repeat bg-center">
+        <div className="bg-head-pattern bg-cover bg-no-repeat bg-center">
+          <Experience style={myStyleMobile}/>    
+        </div>   
+        <div className="bg-about-pattern bg-cover bg-no-repeat bg-center">
           <Feedbacks />
+        </div>
+        <div className="bg-ip-pattern bg-cover bg-no-repeat bg-center">
+          <Contact />
         </div>
         <div className="relative z-0">
         </div>
