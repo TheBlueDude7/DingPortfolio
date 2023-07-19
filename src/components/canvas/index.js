@@ -4,7 +4,7 @@ import StarsCanvas from "./Stars";
 import CamerasCanvas from "./Cameras";
 import ChickensCanvas from "./Chickens";
 import BubblesCanvas from "./Bubble";
-import FacesCanvas from "./face";
+import FacesCanvas from "./Face";
 import chickenSirenCanvas from "./CopChicken"
 import HistoryCanvas from "./HistorySection"
 import ChickenCarCanvas from "./ChickenCar"
