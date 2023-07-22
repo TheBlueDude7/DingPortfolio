@@ -35,7 +35,7 @@ const ChickenFeed = ({xDirection, xRotation, yRotation, positionx, positiony, po
     <>
     <ambientLight intensity={0.1}/>
     <mesh position={[positionx, positiony, positionz]} ref={sphereRef} onClick={(e) => isClicked()}>
-      <sphereGeometry args={isMobile ? [0.1, 22, 22] : [0.15, 33, 33]} />
+      <sphereGeometry args={isMobile ? [0.1, 22, 22] : [0.2, 33, 33]} />
       <meshStandardMaterial map={texturesMap}/>
     </mesh>
     </>

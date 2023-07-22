@@ -21,16 +21,17 @@ export default function DynamicCanvas() {
           <About />
           </RenderInView>
         </div>
+        <div className="bg-head-pattern bg-cover bg-no-repeat bg-center">
+        <RenderInView>
+        <Experience/>    
+        </ RenderInView>
+        </div>   
         <div className="bg-chicken-pattern bg-cover bg-no-repeat bg-center">
         <RenderInView>
           <Tech />
           </ RenderInView>
         </div>
-        <div className="bg-head-pattern bg-cover bg-no-repeat bg-center">
-        <RenderInView>
-        <Experience style={myStyleMobile}/>    
-        </ RenderInView>
-        </div>   
+       
         <div className="bg-about-pattern bg-cover bg-no-repeat bg-center">
           <Feedbacks />
         </div>

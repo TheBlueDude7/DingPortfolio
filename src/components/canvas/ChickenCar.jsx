@@ -20,7 +20,9 @@ const ChickenCar = ({ isMobile }) => {
 
   useFrame(({}, delta) => {
       chickenCar.scene.children[1].children[3].children[0].rotation.y -= 0.1;
+      chickenCar.scene.children[1].children[3].children[1].rotation.y -= 0.1;
       chickenCar.scene.children[1].children[4].children[0].rotation.y -= 0.1;
+      chickenCar.scene.children[1].children[4].children[1].rotation.y -= 0.1;
   })
 
   return (

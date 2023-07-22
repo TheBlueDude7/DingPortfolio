@@ -288,3 +288,23 @@ body {
   text-shadow: 4px 4px 5px black;
   text-align: center;
 }
+
+.mainTextStyle {
+  position: relative;
+  top: 0vh;
+  right: 0vw;
+  font-size: 100px;
+  font-weight: bold;
+  text-shadow: 4px 4px 5px black;
+  text-align: center;
+  color: violet;
+}
+
+.secondaryTextStyle {
+  font-size: 25px;
+  font-weight: bold;
+  text-shadow: 4px 4px 5px black;
+  text-align: center;
+  color: white;
+  float: left;
+}

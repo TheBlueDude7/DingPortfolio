@@ -22,7 +22,7 @@ module.exports = {
         xs: "450px",
       },
       backgroundImage: {
-        "hero-pattern": "url('/assets/herobg.png')",
+        "hero-pattern": "url('/assets/lowpolynightcity.jpeg')",
         "about-pattern": "url('/assets/lowpolysunset.jpg')",
         "chicken-pattern": "url('/assets/lowpolyfarm.jpg')",
         "head-pattern": "url('/assets/lowpolylibrary.jpg')",

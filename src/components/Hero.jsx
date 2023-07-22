@@ -2,7 +2,6 @@ import React from 'react'
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
 import { CamerasCanvas } from './canvas';
-
 const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto" >
@@ -12,9 +11,8 @@ const Hero = () => {
           <div className="w-1 sm:h-80 h-40 violet-gradient"/>
         </div>
         <div>
-          <h1 className={`${styles.heroHeadText}`}> Hi there! <span className="text-[#915eff]"></span></h1>
-          <h2 className={`${styles.heroSubText}`}>Welcome to my digital portfolio!</h2>
-          <h2 className={`${styles.heroSubText}`}>I hope you'll get to know me with the help of my feathery friends!</h2>
+          <h1 className={"mainTextStyle"}> Hi there! <span className="text-[#915eff]"></span></h1>
+          <h2 className={"secondaryTextStyle"}>Welcome to my digital portfolio!</h2>
           <p1></p1>
         </div>
       </div>

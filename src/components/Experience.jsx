@@ -50,7 +50,7 @@ const Experience = () => {
     "text-shadow": "10px 2px 9px black",
     position: "relative",
     top: "65vh",
-    right: "-5vw" 
+    right: "-2vw" 
 
   }
 
@@ -64,7 +64,7 @@ const Experience = () => {
 
   const descriptionStyle = {
     color: "white",
-    "font-size": "15px",
+    "font-size": "25px",
     "font-weight": "bold",
     "text-shadow": "10px 2px 9px black",
     "text-align": "center"
@@ -146,7 +146,7 @@ const Experience = () => {
         <FacesCanvas isHovering={isHovering}/>
         <div style={linksStyle}>
           <h1 style={isMobile ? mystyleMobile : mystyle}>My Projects</h1>
-          <h1 style={descriptionStyle}>Well, better to just show then tell right? Check out my other projects, I'm even here to help you find them!</h1>
+          <h1 style={descriptionStyle}>To get started, check out my other projects! I'm even here to help you out!</h1>
           <a style={isMobile ? channelStyleMobile : channelStyle} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} href="https://www.youtube.com/channel/UCqJeGF-sSEy7IFYN1i80eJg">My Channel</a>
           <a style={isMobile ? amazonStyleMobile : amazonStyle} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} href="https://amazongame.herokuapp.com/singleGame">Guess the Amazon Price!</a>
           <a style={isMobile ? rogerDingWebMobile : rogerDingWeb} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} href="https://rogerdingdumbstuff.com/">Cats and Quotes</a>

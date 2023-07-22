@@ -1,9 +1,10 @@
 import React, { Suspense, useEffect, useState, useRef } from 'react'
-import { Canvas, useFrame, useThree, useLoader, extend } from '@react-three/fiber'
+import { Canvas, useFrame, useThree, useLoader, extend, CameraShake  } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF, useTexture, Text} from '@react-three/drei';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 
 let move = false;
+let movedOnce = false;
 let deathSoundPlayed = false;
 
 const Chickens = ({ isMobile, keyVal, xPosition, yPosition, copsAreHere}) => {
@@ -43,6 +44,7 @@ const Bubbles = ({ isMobile, positionX, positionY, setFear, isScared, setKey, ke
   
   const [scared, setScared] = useState(false);
   const bubbleRef = useRef();
+  const shakeRef = useRef();
   let bubble = useLoader(FBXLoader, './bubble/smiledude.FBX')
 
   useEffect(() => {
@@ -56,6 +58,9 @@ const Bubbles = ({ isMobile, positionX, positionY, setFear, isScared, setKey, ke
   useFrame(() => {
     if(isScared) {
       bubbleRef.current.visible = false;
+    }
+    if(isHovering) {
+      bubbleRef.current.rotation.x += 0.05;
     }
     if(headBobYSpeed < 0) {
         if(bobUp) {
@@ -88,6 +93,7 @@ const Bubbles = ({ isMobile, positionX, positionY, setFear, isScared, setKey, ke
   })
 
 let deathSound = new Audio('audio/DeathSound.mp3');
+deathSound.volume = 0.6;
 
  function isClicked() {
   setKey(keyVal);
@@ -97,8 +103,19 @@ let deathSound = new Audio('audio/DeathSound.mp3');
     deathSound.play();
   }
  }
+ let isHovering = false;
+
+ function setJitter() {
+   isHovering = true;
+ }
+
+ function unJitter() {
+  isHovering = false;
+  bubbleRef.current.rotation.x = 0;
+ }
+
   return (
-    <mesh ref={bubbleRef} onClick={(e) => isClicked()}>
+    <mesh ref={bubbleRef} onClick={(e) => isClicked()} onPointerOver={(e) => setJitter()} onPointerOut={(e) => unJitter()}>
       <spotLight intensity={0.2} position={[1, 0, 0]}/>
       <ambientLight intensity={0.6}/>
       <primitive 
@@ -271,6 +288,7 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
  
     //Audio Loading
     let scared0 = new Audio("/audio/Scream0.mp3");
+    
     let scared1 = new Audio("/audio/Scream1.mp3");
     let scared2 = new Audio('/audio/Scream2.mp3');
     let scared3 = new Audio('/audio/Scream3.mp3');
@@ -279,6 +297,11 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
     let scared6 = new Audio('/audio/Scream6.mp3');
     let initialSound = new Audio('/audio/Initial.mp3');
 
+    scared0.volume = 0.6;
+    scared1.volume = 0.6;
+    scared2.volume = 0.6;
+    scared3.volume = 0.6;
+    initialSound.volume = 0.6;
     initialSound.onended = function() {
       setRunning(true);
       scared0.play();
@@ -296,9 +319,10 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
 
     //Effect to determine when the guys should start moving
     useEffect(() => {
-      if(move) {
-        initialSound.play();
-      }
+        if(move) {
+          initialSound.play();
+        }
+      
     }, [scared])
     
     const [isMobile, setMobile] = useState(false);
