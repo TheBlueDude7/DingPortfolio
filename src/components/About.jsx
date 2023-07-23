@@ -1,9 +1,12 @@
 
 import { styles } from "../styles";
-import { React, useState, useEffect } from "react"
+import { React, useState, useEffect, useRef } from "react"
 import { HistoryCanvas } from "./canvas"
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
+import ReactAudioPlayer from 'react-audio-player';
+import { useInView } from 'react-intersection-observer';
+
 
 const About = () => {
   const mystyle = {
@@ -103,17 +106,53 @@ const About = () => {
     }
   }, [])
 
+  const [ viewRef, inView, entry] = useInView({
+    threshold: 0.1
+  });
+
+  const [ middleViewRef, inMiddleView] = useInView({
+    threshold: 0.2
+  });
+
+  const [volumeVal, setVolume] = useState(0.1);
+  const [workingRadio, setWorking] = useState(true);
+  const [beatText, setBeatText] = useState("Thanks for stopping by! We got some nice beats for ya!");
+  const [topText, setTopText] = useState("I'm currently studying Computer Science and Film!");
+  useEffect(() => {
+    if(workingRadio) {
+      if(inView) {
+        setVolume(0.1);
+        
+      } else {
+        setVolume(0);
+      }
+    } else {
+      setVolume(0);
+    }
+     
+  }, [inView])
+
+  let audioRef = useRef();
+
+  function stopAudio() {
+    setVolume(0); 
+    setWorking(false);
+    setBeatText("Why would you do that? So uncool.")
+    setTopText("MY BOOMBOX!")
+  }
+
   return (
-    <div style={{height: 1000}}> 
-      <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}}> 
+    <div ref={viewRef} style={{height: 1000}} inView={inView}>  
+      <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}} > 
         <div className="absolute">
           <h1 style={isMobile ? mystyleMobile : mystyle}>About Me</h1>
           <h1 style={isMobile ? middleStyleMobile : middleStyle}>My name is Roger Ding, I'm a student at UW Madison.</h1>
-          <h1 style={isMobile ? secondStyleMobile : secondStyle}>I'm currently studying Computer Science and Film!</h1>
-          <h1 style={isMobile ? thirdStyleMobile : thirdStyle}>Thanks for stopping by!</h1>
+          <h1 style={isMobile ? secondStyleMobile : secondStyle}>{topText}</h1>
+          <h1 style={isMobile ? thirdStyleMobile : thirdStyle}>{beatText}</h1>
         </div>
-        <HistoryCanvas />
+        <HistoryCanvas stopAudio={stopAudio}/>
       </div> 
+      <ReactAudioPlayer ref={audioRef} loop={true} src="/audio/heavenSound.mp3" autoPlay volume={volumeVal}/>
     </div>
 
   )

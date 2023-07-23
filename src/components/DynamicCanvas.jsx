@@ -17,9 +17,7 @@ export default function DynamicCanvas() {
           <Hero />
         </div>
         <div className="bg-great-pattern bg-cover bg-no-repeat bg-center">
-          <RenderInView>
           <About />
-          </RenderInView>
         </div>
         <div className="bg-head-pattern bg-cover bg-no-repeat bg-center">
         <RenderInView>
