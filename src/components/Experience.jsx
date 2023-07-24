@@ -146,7 +146,7 @@ const Experience = () => {
         <FacesCanvas isHovering={isHovering}/>
         <div style={linksStyle}>
           <h1 style={isMobile ? mystyleMobile : mystyle}>My Projects</h1>
-          <h1 style={descriptionStyle}>To get started, check out my other projects! I'm even here to help you out!</h1>
+          <h1 style={descriptionStyle}>To get started, have a look at my projects list! I'm even here to help you out!</h1>
           <a style={isMobile ? channelStyleMobile : channelStyle} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} href="https://www.youtube.com/channel/UCqJeGF-sSEy7IFYN1i80eJg">My Channel</a>
           <a style={isMobile ? amazonStyleMobile : amazonStyle} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} href="https://amazongame.herokuapp.com/singleGame">Guess the Amazon Price!</a>
           <a style={isMobile ? rogerDingWebMobile : rogerDingWeb} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} href="https://rogerdingdumbstuff.com/">Cats and Quotes</a>

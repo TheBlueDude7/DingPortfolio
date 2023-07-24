@@ -16,14 +16,15 @@ export default function DynamicCanvas() {
           <Navbar />
           <Hero />
         </div>
-        <div className="bg-great-pattern bg-cover bg-no-repeat bg-center">
-          <About />
-        </div>
         <div className="bg-head-pattern bg-cover bg-no-repeat bg-center">
         <RenderInView>
         <Experience/>    
         </ RenderInView>
-        </div>   
+        </div> 
+        <div className="bg-great-pattern bg-cover bg-no-repeat bg-center">
+          <About />
+        </div>
+          
         <div className="bg-chicken-pattern bg-cover bg-no-repeat bg-center">
         <RenderInView>
           <Tech />

@@ -17,11 +17,14 @@ const Chicken = ({isMobile, changeChicken}) => {
       chickenRef.current.position.y = chickenRef.current.position.y + gravValue * delta;
       chickenRef.current.rotation.x = chickenRef.current.rotation.x + gravValue * delta;
       gravValue = gravValue + gravValue/2;
+      if(chickenRef.current.position.y < -5) {
+        chickenRef.current.visible = false;
+      }
     }
   })
 
   return (
-    <Float>
+    <Float speed={10}>
     <mesh castShadow>
       <ambientLight intensity={0.05} />
       <primitive ref={chickenRef}
@@ -35,7 +38,7 @@ const Chicken = ({isMobile, changeChicken}) => {
   )
 }
 
-const Radio = ({isMobile, stopAudio, setChicken}) => {
+const Radio = ({isMobile, stopAudio, setChicken, highVolume, lowVolume}) => {
   const radio = useGLTF("./radio/scene.gltf");
   const radioRef = useRef();
   const [isHovering, setHovering] = useState(false);
@@ -43,10 +46,12 @@ const Radio = ({isMobile, stopAudio, setChicken}) => {
   const { chickenSize } = useSpring({
     from: {
         chickenSize: 1,
+        delay: 50
     },
     to: [
         {
           chickenSize: 1,
+          delay: 50
         },
         {
         chickenSize: 1.2,
@@ -71,10 +76,20 @@ const Radio = ({isMobile, stopAudio, setChicken}) => {
     setChicken();
   }
 
+  function hoveringOver() {
+    setHovering(true);
+    highVolume();
+  }
+
+  function notHovering() {
+    setHovering(false);
+    lowVolume();
+  }
+
   return (
-    <Float speed={4} floatIntesity={0.1}  >
+    <Float speed={10} floatIntesity={1}  >
     <animated.group scale={isHovering ? chickenSize : 1}>
-      <mesh ref={radioRef} onPointerOver={(e) => setHovering(true)} onPointerOut={(e) => setHovering(false)} onClick={(e) => brokeRadio()}>
+      <mesh ref={radioRef} onPointerOver={(e) => hoveringOver()} onPointerOut={(e) => notHovering()} onClick={(e) => brokeRadio()}>
       <spotLight intensity={1} position={[1, 0, 0]}/>
       <primitive onMouse
         object={radio.scene}
@@ -220,7 +235,7 @@ const ChickenFirst = ({ isMobile }) => {
   }
 
 
-const HistoryCanvas = ({stopAudio}) => {
+const HistoryCanvas = ({stopAudio, highVolume, lowVolume}) => {
     const [isMobile, setMobile] = useState(false);
   
     useEffect(() => {
@@ -264,7 +279,7 @@ const HistoryCanvas = ({stopAudio}) => {
         shadows
         gl={{ preserveDrawingBuffer: true }}   
       >
-        <Radio stopAudio={stopAudio} setChicken={setChicken}/>
+        <Radio stopAudio={stopAudio} setChicken={setChicken} highVolume={highVolume} lowVolume={lowVolume}/>
         <ChickenFirst isMobile={isMobile}/>
         <ChickenSecond isMobile={isMobile}/>
         <Preload all />

@@ -49,6 +49,17 @@ const About = () => {
     "text-align": "center"
   }
 
+  const fourthStyle = {
+    position: "relative",
+    top: "80vh",
+    left: "2.5vh",
+    "font-size": "20px",
+    "font-weight": "bold",
+    "text-shadow": "4px 4px 5px black",
+    "text-align": "center"
+  }
+
+
   //Mobile Styles
 
   const mystyleMobile = {
@@ -121,10 +132,10 @@ const About = () => {
   useEffect(() => {
     if(workingRadio) {
       if(inView) {
-        setVolume(0.1);
+        setVolume(0.05);
         
       } else {
-        setVolume(0);
+        setVolume(0.0125);
       }
     } else {
       setVolume(0);
@@ -141,6 +152,16 @@ const About = () => {
     setTopText("MY BOOMBOX!")
   }
 
+  function highVolume() {
+    setVolume(0.15);
+  }
+
+  function lowVolume() {
+    if(workingRadio){
+      setVolume(0.1);
+    }
+  }
+
   return (
     <div ref={viewRef} style={{height: 1000}} inView={inView}>  
       <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}} > 
@@ -149,8 +170,9 @@ const About = () => {
           <h1 style={isMobile ? middleStyleMobile : middleStyle}>My name is Roger Ding, I'm a student at UW Madison.</h1>
           <h1 style={isMobile ? secondStyleMobile : secondStyle}>{topText}</h1>
           <h1 style={isMobile ? thirdStyleMobile : thirdStyle}>{beatText}</h1>
+          <h1 style={fourthStyle}> (Song is "If Heaven was a Sound" by Hotel Apache) </h1>
         </div>
-        <HistoryCanvas stopAudio={stopAudio}/>
+        <HistoryCanvas stopAudio={stopAudio} highVolume={highVolume} lowVolume={lowVolume}/>
       </div> 
       <ReactAudioPlayer ref={audioRef} loop={true} src="/audio/heavenSound.mp3" autoPlay volume={volumeVal}/>
     </div>
