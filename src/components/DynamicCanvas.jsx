@@ -14,10 +14,13 @@ export default function DynamicCanvas() {
       <div className="relative z-0 bg-primary">
         <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
           <Navbar />
+          <RenderInView height="700px">
           <Hero />
+          </RenderInView>
+          
         </div>
         <div className="bg-head-pattern bg-cover bg-no-repeat bg-center">
-        <RenderInView>
+        <RenderInView height="850px">
         <Experience/>    
         </ RenderInView>
         </div> 

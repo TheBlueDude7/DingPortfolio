@@ -280,8 +280,8 @@ body {
 }
 
 .rightStyleMobile {
-  position: absolute;
-  top: 80vh;
+  position: relative;
+  top: 72.5vh;
   right: 0vh;
   font-size: 15px;
   font-weight: bold;
@@ -292,6 +292,15 @@ body {
 .mainTextStyle {
   position: relative;
   font-size: 100px;
+  font-weight: bold;
+  text-shadow: 4px 4px 5px black;
+  text-align: center;
+  color: #CBC3E3;
+}
+
+.mainTextStyleMobile {
+  position: relative;
+  font-size: 50px;
   font-weight: bold;
   text-shadow: 4px 4px 5px black;
   text-align: center;

@@ -12,10 +12,10 @@ const Navbar = () => {
   return (
     <nav
       className={`
-        ${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary
+        ${styles.paddingX} w-full flex flex-col items-center py-5 fixed top-0 z-40 bg-primary content-center
       `}
     > 
-      <div className="w-full flex justify-between items-center max-w-7x1 mx-auto">
+      <div className="flex-col w-full flex justify-between items-center max-w-7x1 mx-auto content-center">
         <a 
           
           className="flex items-center gap-2"
@@ -24,27 +24,14 @@ const Navbar = () => {
             window.scrollTo(0,0);
           }}
         >
-        <img src={logo}/>
-        <p className="text-white text-[18px] 
-        font-bold cursor-pointer flex"> Roger
+        <img src={"./chickenIcon.png"} width="30" height="30"/>
+        <p className="text-white text-[23px] 
+        font-bold cursor-pointer flex" > Roger
         &nbsp; <span className="sm:block hidden">
         Ding</span></p>
         </a>
-        {/* This below helps format the navbar, make the link clickable, and also set the page to your desired index */}
-        <ul className="list-none hidden sm:flex flex-row gap-10">
-          {navLinks.map((Link) => (
-            <li
-              key={Link.id}
-              className={`${
-                active === Link.title ? "text-secondary" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(Link.title)}
-            >
-              <a href={`#${Link.id}`}>{Link.title}</a>
-            </li>
-            ))}
-        </ul>
-         {/* Roger this code is for Mobile formatting */}
+        
+         {/* Roger this code is for Mobile formatting
         <div className="sm:hidden flex flex-1 justify-end items-center">
               <img
               src={toggle ? close : menu}
@@ -59,8 +46,7 @@ const Navbar = () => {
                   key={Link.id}
                   className={`${
                   active === Link.title ? "text-secondary" : "text-secondary"
-                  } font-poppins font-medium 
-                  cursor-pointer text-[16px]`}
+                  }`}
                   onClick={() =>  {
                     setToggle(!toggle);
                     setActive(Link.title);
@@ -71,7 +57,7 @@ const Navbar = () => {
                 ))}
                 </ul>
               </div>
-        </div>
+        </div> */}
       </div>
     </nav>
   )

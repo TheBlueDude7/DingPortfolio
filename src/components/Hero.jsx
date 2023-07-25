@@ -1,8 +1,24 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
 import { CamerasCanvas } from './canvas';
 const Hero = () => {
+  const [isMobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 500px)');
+    setMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event) => {
+      setMobile(event.matches);
+    }
+
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaQueryChange);
+    }
+  }, [])
+
   return (
     <section className="relative w-full h-screen mx-auto" >
       <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7x1 mx-auto flex flex-row items-start gap-5`}>
@@ -11,8 +27,8 @@ const Hero = () => {
           <div className="w-1 sm:h-80 h-40 violet-gradient"/>
         </div>
         <div>
-          <h1 className={"mainTextStyle"}> Hi there! <span className="text-[#915eff]"></span></h1>
-          <h2 className={"secondaryTextStyle"}>Welcome to my digital portfolio!</h2>
+          <h1 className={isMobile ? "mainTextStyleMobile" : "mainTextStyle"}> Hi there! <span className="text-[#915eff]"></span></h1>
+          <h2 className={"secondaryTextStyle"}>Welcome to my digital portfolio!</h2>  
           <p1></p1>
         </div>
       </div>

@@ -83,8 +83,8 @@ const About = () => {
 
   //Third Text
   const secondStyleMobile = {
-    position: "absolute",
-    top: "20vh",
+    position: "relative",
+    top: "15vh",
     left: "0.5vh",
     "font-size": "15px",
     "font-weight": "bold",
@@ -94,9 +94,20 @@ const About = () => {
 
   //Routh Text
   const thirdStyleMobile = {
-    position: "absolute",
-    top: "30vh",
+    position: "relative",
+    top: "20vh",
     left: "0.5vh",
+    "font-size": "15px",
+    "font-weight": "bold",
+    "text-shadow": "4px 4px 5px black",
+    "text-align": "center"
+  }
+
+  //
+  const fourthStyleMobile = {
+    position: "relative",
+    top: "80vh",
+    left: "2.5vh",
     "font-size": "15px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
@@ -170,7 +181,7 @@ const About = () => {
           <h1 style={isMobile ? middleStyleMobile : middleStyle}>My name is Roger Ding, I'm a student at UW Madison.</h1>
           <h1 style={isMobile ? secondStyleMobile : secondStyle}>{topText}</h1>
           <h1 style={isMobile ? thirdStyleMobile : thirdStyle}>{beatText}</h1>
-          <h1 style={fourthStyle}> (Song is "If Heaven was a Sound" by Hotel Apache) </h1>
+          <h1 style={isMobile ? fourthStyleMobile : fourthStyle}> (Song is "If Heaven was a Sound" by Hotel Apache) </h1>
         </div>
         <HistoryCanvas stopAudio={stopAudio} highVolume={highVolume} lowVolume={lowVolume}/>
       </div> 
