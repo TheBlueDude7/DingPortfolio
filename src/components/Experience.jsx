@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { FacesCanvas } from "./canvas"
 import { technologies } from "../constants";
 import { Canvas, useFrame } from '@react-three/fiber';
+import { withRouter } from 'next/router';
 
 
 const Experience = () => {
@@ -45,6 +46,7 @@ const Experience = () => {
   }
 
   const practiceFusionLink = {
+    color: white,
     "font-size": "20px",
     "font-weight": "bold",
     "text-shadow": "10px 2px 9px black",
