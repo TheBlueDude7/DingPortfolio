@@ -119,7 +119,7 @@ const About = () => {
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
     "text-align": "center",
-    color: "white"
+     color: "white"
   }
 
   const [isMobile, setMobile] = useState(false);
@@ -165,6 +165,7 @@ const About = () => {
   let audioRef = useRef();
 
   function stopAudio() {
+    boomboxStop.play();
     setVolume(0); 
     setWorking(false);
     setBeatText("Why would you do that? So uncool.")
@@ -180,6 +181,10 @@ const About = () => {
       setVolume(0.1);
     }
   }
+
+  let boomboxStop = new Audio('/audio/nomoreboombox.mp3');
+
+  boomboxStop.volume = 0.5;
 
   return (
     <div ref={viewRef} style={{height: 1000}} inView={inView}>  

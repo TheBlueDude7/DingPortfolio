@@ -46,7 +46,7 @@ const Experience = () => {
   }
 
   const practiceFusionLink = {
-    color: white,
+    color: "white",
     "font-size": "20px",
     "font-weight": "bold",
     "text-shadow": "10px 2px 9px black",
