@@ -52,7 +52,7 @@ const Experience = () => {
     "text-shadow": "10px 2px 9px black",
     position: "relative",
     top: "65vh",
-    right: "-2vw" 
+    right: "-3vw" 
 
   }
 
@@ -76,7 +76,7 @@ const Experience = () => {
   const channelStyle = {
     position: "relative",
     top: "65vh",
-    left: "10vh",
+    left: "8vh",
     "font-size": "25px",
     "font-weight": "bold",
     "text-shadow": "10px 2px 10px black",
@@ -97,7 +97,8 @@ const Experience = () => {
     "font-size": "15px",
     "font-weight": "bold",
     "text-shadow": "10px 2px 9px black",
-    "text-align": "center"
+    "text-align": "center",
+    color: "white"
   }
 
   const descriptionStyleMobile = {
@@ -109,6 +110,7 @@ const Experience = () => {
   };
 
   const rogerDingWebMobile = {
+    color: "white",
     position: "absolute",
     top: "40vh",
     right: "7vh",
@@ -129,6 +131,7 @@ const Experience = () => {
   };
 
   const channelStyleMobile = {
+    color: "white",
     position: "absolute",
     top: "80vh",
     left: "3vh",
@@ -140,6 +143,7 @@ const Experience = () => {
 
   
   const practiceFusionLinkMobile = {
+    color: "white",
     position: "absolute",
     top: "80vh",
     right: "3vh",
@@ -151,7 +155,7 @@ const Experience = () => {
 
   const infopage = {
     position: "relative",
-    top: "5vh",
+    top: "20vh",
     right: "3vh",
     "font-size": "20px",
     "font-weight": "bold",

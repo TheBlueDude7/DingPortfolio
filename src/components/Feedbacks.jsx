@@ -90,7 +90,7 @@ const Feedbacks = () => {
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
     "text-align": "center",
-    color: "white"
+     color: "white"
   }
 
 
@@ -105,6 +105,7 @@ const Feedbacks = () => {
   }
 
   const otherPeopleTextMobile = {
+    color: "white",
     position: "absolute",
     "font-size": "14px",
     "font-weight": "bold",
@@ -113,6 +114,7 @@ const Feedbacks = () => {
   }
 
   const channelStyleMobile = {
+    color: "white",
     position: "absolute",
     top: "80vh",
     left: "-70vh",
