@@ -14,7 +14,7 @@ const About = () => {
     "font-size": "60px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    "text-align": "center",
   };
 
   //Second Text
@@ -25,7 +25,8 @@ const About = () => {
     "font-size": "20px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    "text-align": "center",
+    color: "white"
   }
    //Third Text
    const secondStyle = {
@@ -35,7 +36,8 @@ const About = () => {
     "font-size": "20px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    "text-align": "center",
+    color: "white"
   }
 
    //Fourth Text
@@ -46,7 +48,8 @@ const About = () => {
     "font-size": "20px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    "text-align": "center",
+    color: "white"
   }
 
   const fourthStyle = {
@@ -56,7 +59,8 @@ const About = () => {
     "font-size": "20px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    "text-align": "center",
+    color: "white"
   }
 
 
@@ -78,7 +82,8 @@ const About = () => {
     "font-size": "15px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    "text-align": "center",
+    color: "white"
   }
 
   //Third Text
@@ -89,7 +94,8 @@ const About = () => {
     "font-size": "15px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    "text-align": "center",
+    color: "white"
   }
 
   //Routh Text
@@ -100,7 +106,8 @@ const About = () => {
     "font-size": "15px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    "text-align": "center",
+    color: "white"
   }
 
   //
@@ -111,7 +118,8 @@ const About = () => {
     "font-size": "15px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    "text-align": "center",
+    color: "white"
   }
 
   const [isMobile, setMobile] = useState(false);

@@ -89,7 +89,8 @@ const Feedbacks = () => {
     "font-size": "18px",
     "font-weight": "bold",
     "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    "text-align": "center",
+    color: "white"
   }
 
 

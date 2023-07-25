@@ -155,7 +155,8 @@ const Experience = () => {
     "font-weight": "bold",
     "text-shadow": "10px 2px 9px black",
     "text-align": "center",
-    "flexWrap": 'wrap'
+    "flexWrap": 'wrap',
+    color: "white"
   }
   //Amazon Info
   function link1() {

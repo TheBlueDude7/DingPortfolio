@@ -222,6 +222,7 @@
 }
 
 .channelStyle {
+  color: "white";
   position: relative;
   top: 65vh;
   left: -60vh;
@@ -232,6 +233,7 @@
 }
 
 .channelStyleMobile {
+  color: "white";
   position: relative;
   top: 70vh;
   left: 0vh;
@@ -246,6 +248,7 @@
 }
 
 .middleStyle {
+  color: "white";
   position: relative;
   top: 70vh;
   left: 0vh;
@@ -259,6 +262,7 @@ body {
   color: white;
 }
 .middleStyleMobile {
+  color: "white";
   position: absolute;
   top: 90vh;
   left: 0vh;
@@ -270,6 +274,7 @@ body {
 
 
 .rightStyle {
+  color: "white";
   position: relative;
   top: 58vh;
   right: -60vh;
@@ -287,6 +292,7 @@ body {
   font-weight: bold;
   text-shadow: 4px 4px 5px black;
   text-align: center;
+  color: "white";
 }
 
 .mainTextStyle {
