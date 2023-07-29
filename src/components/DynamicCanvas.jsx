@@ -1,4 +1,6 @@
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, RenderInView} from '@/components';
+import { useGLTF } from '@react-three/drei';
+import { Canvas, useFrame } from '@react-three/fiber';
 
 export default function DynamicCanvas() {
   const myStyleMobile = {
@@ -8,6 +10,8 @@ export default function DynamicCanvas() {
     height: "100vh"
     
   };
+
+ 
 
   return (
     // <BrowserRouter>

@@ -45,10 +45,11 @@ const Bubbles = ({ isMobile, positionX, positionY, setFear, isScared, setKey, ke
   const [scared, setScared] = useState(false);
   const bubbleRef = useRef();
   const shakeRef = useRef();
-  let bubble = useLoader(FBXLoader, './bubble/smiledude.FBX')
+  // let bubble = useLoader(FBXLoader, './bubble/smiledude3.fbx')
+  let bubble = useGLTF('./bubble/smileman2.glb')
 
   useEffect(() => {
-    bubble.traverse(
+    bubble.scene.traverse(
       child => {
         if ( child.material ) { child.material.metalness = 0.5; }
       }
@@ -116,11 +117,11 @@ deathSound.volume = 0.6;
 
   return (
     <mesh ref={bubbleRef} onClick={(e) => isClicked()} onPointerOver={(e) => setJitter()} onPointerOut={(e) => unJitter()}>
-      <spotLight intensity={0.2} position={[1, 0, 0]}/>
-      <ambientLight intensity={0.6}/>
+      <spotLight intensity={2} position={[0, 0, 0]}/>
+      <ambientLight intensity={0.3}/>
       <primitive 
-        object={bubble.clone()}
-        scale={isMobile ? 0.005 : 0.01}
+        object={bubble.scene.clone()}
+        scale={isMobile ? 0.005 : 0.4}
         position={[positionX, positionY, 0]}
         rotation={[0, 0, 0]}
       />
@@ -130,7 +131,7 @@ deathSound.volume = 0.6;
 
 const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey, keyVal}) => {
   const bubbleRef = useRef();
-    let unhappy = useGLTF('./bubble/scared.glb');   
+    let unhappy = useGLTF('./bubble/scared2.glb');   
 
   //Stuff for bobbing
   let headBobYSpeed = 0;

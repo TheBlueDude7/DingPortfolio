@@ -28,7 +28,7 @@ const CameraChicken = ({isMobile}) => {
 
 
 const Cameras = ({ isMobile }) => {
-  const camera = useGLTF('./camera/camera.gltf')
+  const camera = useGLTF('./camera/cameraLow.glb')
   useEffect(() => {
     camera.scene.traverse(
       child => {

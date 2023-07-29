@@ -86,7 +86,7 @@ const ChickenCar = ({ isMobile }) => {
   }
 
   const Sun = () => {
-    const sun = useLoader(FBXLoader, './car/sunfile.fbx');
+    const sun = useLoader(FBXLoader, './car/sunfileLow.fbx');
     const sunRef = useRef();
     return (
         <mesh ref={sunRef}>
