@@ -3,12 +3,12 @@ import { Canvas, useFrame, useLoader  } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF} from '@react-three/drei';
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
-const ChickenFeed = ({xDirection, xRotation, yRotation, positionx, positiony, positionz, texture, isMobile}) => {
+const ChickenFeed = ({angryBawk, xDirection, xRotation, yRotation, positionx, positiony, positionz, texture, isMobile}) => {
   let texturesMap = useLoader(TextureLoader, texture);
   const sphereRef = useRef(); 
-  const angryBawk = new Audio('audio/bigBawk.mp3');
+  // const angryBawk = new Audio('audio/bigBawk.mp3');
 
-  angryBawk.volume = 0.3;
+  // angryBawk.volume = 0.3;
 
   useFrame((state, dt) => {
     if(xDirection >= 5) {
@@ -43,7 +43,7 @@ const ChickenFeed = ({xDirection, xRotation, yRotation, positionx, positiony, po
 }
 
 
-const Chickens = ({ isMobile, keyVal}) => {
+const Chickens = ({ isMobile, keyVal, angryBawk}) => {
   let xDirection = Math.random() * 10;
   let xRotation = Math.random() * 3;
   let yRotation = Math.random() * 3;
@@ -79,7 +79,7 @@ const Chickens = ({ isMobile, keyVal}) => {
   return (
     <mesh castShadow >
       <ambientLight intensity={0.05} />
-      <ChickenFeed isMobile={isMobile} positionx={xPos} positiony={yPos} positionz={zPos} xDirection={xDirection} xRotation={xRotation} yRotation={yRotation} texture={picturesMap[keyVal]}/>
+      <ChickenFeed isMobile={isMobile} positionx={xPos} positiony={yPos} positionz={zPos} xDirection={xDirection} xRotation={xRotation} yRotation={yRotation} texture={picturesMap[keyVal]} angryBawk={angryBawk}/>
       <primitive ref={chickenRef}
         object={chicken.scene.clone()}
         scale={isMobile ? Math.random() * 3 + 1 : Math.random() * 3 + 2}
@@ -110,6 +110,10 @@ const chickensCanvas = () => {
     }
   }, [])
 
+  const angryBawk = new Audio('audio/bigBawk.mp3');
+
+  angryBawk.volume = 0.3;
+
 
   return (
 
@@ -118,7 +122,7 @@ const chickensCanvas = () => {
       gl={{ preserveDrawingBuffer: true }}      
     >
       {/* Creates the chickens on the scene, fills an array and assigns them unique keys */}
-      {new Array(11).fill().map((item, i) => <Chickens key={i} keyVal={i} isMobile={isMobile}/> )}
+      {new Array(11).fill().map((item, i) => <Chickens key={i} keyVal={i} isMobile={isMobile} angryBawk={angryBawk}/> )}
       {/* <Chickens position={[2, 0, 0]}/> */}
       <Suspense>
         <OrbitControls enableZoom={false} enabled={false} />

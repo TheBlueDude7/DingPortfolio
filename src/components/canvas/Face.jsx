@@ -107,7 +107,7 @@ const Face = ({ isMobile, mouseCoordsRef, isHovering }) => {
         
     }
 
-    const face = useGLTF('./face/face.glb')
+    const face = useGLTF('./face/faceLow.glb')
     const faceRef = useRef();
     //For head shake
     const [goUp, setUp] = useState(true);
