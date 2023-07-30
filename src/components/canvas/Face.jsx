@@ -20,7 +20,7 @@ const FaceChicken = ({isMobile, height, isHovering, rotation, xPos}) => {
                     setUp(false);
                     scaleVal = 0.06 * noddingExcitement;
                 } else {
-                    chickenRef.current.position.y = chickenRef.current.position.y + scaleVal;
+                    chickenRef.current.position.y = chickenRef.current.position.y + scaleVal * dt * 100;
                     scaleVal += -0.005 * noddingExcitement; 
                     // faceRef.current.position.x = faceRef.current.position.x - 0.01;
                     changeVal++;
@@ -30,7 +30,7 @@ const FaceChicken = ({isMobile, height, isHovering, rotation, xPos}) => {
                     setUp(true);
                     scaleVal = 0.06 * noddingExcitement;
                 } else {
-                    chickenRef.current.position.y = chickenRef.current.position.y - scaleVal ;
+                    chickenRef.current.position.y = chickenRef.current.position.y - scaleVal * dt * 100;
                     scaleVal += -0.005 * noddingExcitement;
                     changeVal--;
                 }

@@ -32,7 +32,7 @@ const Hero = () => {
           <p1></p1>
         </div>
       </div>
-      <CamerasCanvas />
+      <CamerasCanvas/>
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a

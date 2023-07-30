@@ -43,7 +43,7 @@ const ChickenFeed = ({angryBawk, xDirection, xRotation, yRotation, positionx, po
 }
 
 
-const Chickens = ({ isMobile, keyVal, angryBawk}) => {
+const Chickens = ({ isMobile, keyVal, angryBawk, chicken}) => {
   let xDirection = Math.random() * 10;
   let xRotation = Math.random() * 3;
   let yRotation = Math.random() * 3;
@@ -55,7 +55,6 @@ const Chickens = ({ isMobile, keyVal, angryBawk}) => {
   let picturesMap = ["react.png", "Javascript.png", "Java.png", "premierepro.png", "cSharp.png", "afterEffects.png", "css.png", "nextjs.jpg", "C_Logo.png", "php.png", "python.png"];
 
   const chickenRef = useRef();
-  const chicken = useGLTF('./chicken/chicken.glb')
   
   useFrame((state, dt) => {
    if(xDirection >= 5) {
@@ -81,7 +80,7 @@ const Chickens = ({ isMobile, keyVal, angryBawk}) => {
       <ambientLight intensity={0.05} />
       <ChickenFeed isMobile={isMobile} positionx={xPos} positiony={yPos} positionz={zPos} xDirection={xDirection} xRotation={xRotation} yRotation={yRotation} texture={picturesMap[keyVal]} angryBawk={angryBawk}/>
       <primitive ref={chickenRef}
-        object={chicken.scene.clone()}
+        object={chicken}
         scale={isMobile ? Math.random() * 3 + 1 : Math.random() * 3 + 2}
         position={[xPos, yPos, zPos]}
         rotation={[Math.PI/Math.random() * 2, Math.random() * 2, Math.random() * 2]}
@@ -114,6 +113,8 @@ const chickensCanvas = () => {
 
   angryBawk.volume = 0.3;
 
+  const chicken = useGLTF('./chicken/chicken.glb');
+
 
   return (
 
@@ -122,12 +123,11 @@ const chickensCanvas = () => {
       gl={{ preserveDrawingBuffer: true }}      
     >
       {/* Creates the chickens on the scene, fills an array and assigns them unique keys */}
-      {new Array(11).fill().map((item, i) => <Chickens key={i} keyVal={i} isMobile={isMobile} angryBawk={angryBawk}/> )}
+      {new Array(11).fill().map((item, i) => <Chickens chicken={chicken.scene.clone()} key={i} keyVal={i} isMobile={isMobile} angryBawk={angryBawk}/> )}
       {/* <Chickens position={[2, 0, 0]}/> */}
       <Suspense>
         <OrbitControls enableZoom={false} enabled={false} />
       </Suspense>
-      <Preload all />
     </Canvas>
   )
 }

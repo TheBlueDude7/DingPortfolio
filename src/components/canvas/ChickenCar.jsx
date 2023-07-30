@@ -85,15 +85,14 @@ const ChickenCar = ({ isMobile }) => {
       )
   }
 
-  const Sun = () => {
-    const sun = useLoader(FBXLoader, './car/sunfileLow.fbx');
+  const Sun = ({sun}) => {
     const sunRef = useRef();
     return (
         <mesh ref={sunRef}>
           <Float>
           <pointLight intensity={1.2} power={1}/>
           <primitive 
-            object={sun.clone()}
+            object={sun}
             scale={0.01}
             position={[2.5, 1.4, 1]}
             rotation={[0.5, -0.5, 0]}
@@ -104,8 +103,7 @@ const ChickenCar = ({ isMobile }) => {
       )
   }
 
-  const Planet = ({isMobile}) => {
-    const planet = useGLTF('./planet/earth.glb');
+  const Planet = ({isMobile, planet}) => {
     const planetRef = useRef();
     useFrame(() => {
         planetRef.current.rotation.y += 0.01;
@@ -113,7 +111,7 @@ const ChickenCar = ({ isMobile }) => {
     return (
         <mesh ref={planetRef}>
           <primitive 
-            object={planet.scene.clone()}
+            object={planet.scene}
             scale={isMobile ? 0.4 : 0.8}
             position={isMobile ? [0, 1, 0] : [0, 0.5, 0]}
             rotation={[0, 0, 0]}
@@ -145,8 +143,7 @@ const ChickenCar = ({ isMobile }) => {
       )
   }
 
-  const Road = ({ isMobile }) => {
-    const road = useGLTF('./car/longroad.glb')
+  const Road = ({ isMobile, road }) => {
     useEffect(() => {
         road.scene.traverse(
         child => {
@@ -187,7 +184,10 @@ const ChickenCarCanvas = () => {
         mediaQuery.removeEventListener('change', handleMediaQueryChange);
       }
     }, [])
-  
+
+    const sun = useLoader(FBXLoader, './car/sunfileLow.fbx');
+    const planet = useGLTF('./planet/earth.glb');
+    const road = useGLTF('./car/longroad.glb');
   
     return (
   
@@ -195,13 +195,12 @@ const ChickenCarCanvas = () => {
         shadows
         gl={{ preserveDrawingBuffer: true }}      
       >
-        <Sun />
-        <Planet isMobile={isMobile}/>
-        <Road isMobile={isMobile}/>
+        <Sun sun={sun}/>
+        <Planet isMobile={isMobile} planet={planet}/>
+        <Road isMobile={isMobile} road={road}/>
         <ChickenCar isMobile={isMobile}/>
         <Arrow isMobile={isMobile}/>
         <Clock />
-        <Preload all />
       </Canvas>
     )
   } 

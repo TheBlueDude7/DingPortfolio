@@ -125,7 +125,7 @@ const Feedbacks = () => {
   }
   return (
    
-    <section className="relative w-full h-screen mx-auto" >
+    <section className="relative w-full h-screen mx-auto" style={{height: 1000}} >
       <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}}>
       <BubblesCanvas setHidden={hideText}/>
       <div className="absolute">

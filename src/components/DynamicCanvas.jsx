@@ -1,6 +1,7 @@
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, RenderInView} from '@/components';
 import { useGLTF } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
+  
 
 export default function DynamicCanvas() {
   const myStyleMobile = {
@@ -11,15 +12,14 @@ export default function DynamicCanvas() {
     
   };
 
- 
-
+  
   return (
     // <BrowserRouter>
       <div className="relative z-0 bg-primary">
         <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
           <Navbar />
           <RenderInView height="900px">
-          <Hero />
+          <Hero/>
           </RenderInView>
           
         </div>
@@ -29,7 +29,8 @@ export default function DynamicCanvas() {
         </ RenderInView>
         </div> 
         <div className="bg-great-pattern bg-cover bg-no-repeat bg-center">
-          <About />
+        <About />
+
         </div>
           
         <div className="bg-chicken-pattern bg-cover bg-no-repeat bg-center">
@@ -39,7 +40,7 @@ export default function DynamicCanvas() {
         </div>
        
         <div className="bg-about-pattern bg-cover bg-no-repeat bg-center">
-          <Feedbacks />
+          <Feedbacks/>
         </div>
         <div className="bg-ip-pattern bg-cover bg-no-repeat bg-center">
         <RenderInView>
