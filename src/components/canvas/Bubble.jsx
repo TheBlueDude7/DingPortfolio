@@ -361,8 +361,8 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
       <Canvas
       camera={{position: [0, 0, 10], fov: 60 }}
       >
-        {Array(5).fill().map((item, i) => <Bubbles key={i} positionY={isMobile ? 1.2 : 1} positionX={isMobile ? i - 2 : i * 3 - 5.7} setFear={setFear} isScared={scared} setKey={setKey} keyVal={i} isMobile={isMobile}/>)} 
-        {Array(5).fill().map((item, i) => <Unhappy key={i} positionY={isMobile ? 1.2 : 1} positionX={isMobile ? i - 2 : i * 3 - 5.7} setArray={setFear} isScared={scared} isRunning={running} hideKey={hideKey} keyVal={i} isMobile={isMobile}/>)}
+        {Array(5).fill().map((item, i) => <Bubbles key={i} positionY={isMobile ? 1.2 : 0.6} positionX={isMobile ? i - 2 : i * 3 - 5.7} setFear={setFear} isScared={scared} setKey={setKey} keyVal={i} isMobile={isMobile}/>)} 
+        {Array(5).fill().map((item, i) => <Unhappy key={i} positionY={isMobile ? 1.2 : 0.6} positionX={isMobile ? i - 2 : i * 3 - 5.7} setArray={setFear} isScared={scared} isRunning={running} hideKey={hideKey} keyVal={i} isMobile={isMobile}/>)}
         {Array(3).fill().map((item, i) =>  <Chickens xPosition={12 + (Math.random() * 10)} yPosition={i * 1.4 - 2} copsAreHere={copTime} xRotation={Math.random() * 6 - 3}/>)}  
        
         {/* {scaredArray[1]}

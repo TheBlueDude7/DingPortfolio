@@ -146,7 +146,7 @@ const About = () => {
 
   const [volumeVal, setVolume] = useState(0.1);
   const [workingRadio, setWorking] = useState(true);
-  const [beatText, setBeatText] = useState("Thanks for stopping by! We got some nice beats for ya!");
+  const [beatText, setBeatText] = useState("We got some nice beats for ya! (If there's nothing playing, gently touch the boombox).");
   const [topText, setTopText] = useState("I'm currently studying Computer Science and Film!");
   useEffect(() => {
     if(workingRadio) {
@@ -169,7 +169,7 @@ const About = () => {
     setVolume(0); 
     setWorking(false);
     setBeatText("Why would you do that? So uncool.")
-    setTopText("MY BOOMBOX!")
+    setTopText("MY BOOMBOX! I SAID GENTLY!")
   }
 
   function highVolume() {
