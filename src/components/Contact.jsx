@@ -23,10 +23,10 @@ const Contact = () => {
   const [location, setLocation] = useState('')
   const mystyle = {
     color: "white",
-    "font-size": "60px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "60px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center"
   };
 
   const EarthStyle = {
@@ -35,9 +35,9 @@ const Contact = () => {
 
   const ipStyle = {
     color: "white",
-    "font-size": "30px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
+    fontSize: "30px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
     top: "480px",
     position: "absolute",
     left: "760px"
@@ -45,35 +45,35 @@ const Contact = () => {
 
   const descriptionStyle = {
     color: "white",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
-    "text-align": "center"
+    fontSize: "20px",
+    fontWeight: "bold",
+    textShadow: "10px 2px 9px black",
+    textAlign: "center"
   }
 
   //Mobile Formatting
 
   const mystyleMobile = {
     color: "white",
-    "font-size": "40px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "40px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center"
   };
 
   const descriptionStyleMobile = {
     color: "white",
-    "font-size": "15px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
-    "text-align": "center"
+    fontSize: "15px",
+    fontWeight: "bold",
+    textShadow: "10px 2px 9px black",
+    textAlign: "center"
   }
 
   const ipStyleMobile = {
     color: "white",
-    "font-size": "15px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
+    fontSize: "15px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
     top: "520px",
     position: "absolute",
     left: "250px"
@@ -94,7 +94,7 @@ const Contact = () => {
 
   return (
     <div>
-        <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}}>
+        <div className="flex flex-row flex-wrap justify-center" style={{height:"1000px"}}>
         <ChickenCarCanvas/>
         <div className="absolute">
           <h1 style={isMobile ? mystyleMobile : mystyle}> Contact Me</h1>

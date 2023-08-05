@@ -28,10 +28,10 @@ const Experience = () => {
     top: "30vh",
     left: "-20vh",
     color: "white",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
-    "text-align": "center"
+    fontSize: "20px",
+    fontWeight: "bold",
+    textShadow: "10px 2px 9px black",
+    textAlign: "center"
   }
 
   const rogerDingWeb = {
@@ -39,17 +39,17 @@ const Experience = () => {
     top: "30vh",
     right: "-35vh",
     color: "white",
-    "font-size": "25px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
-    "text-align": "center"
+    fontSize: "25px",
+    fontWeight: "bold",
+   textShadow: "10px 2px 9px black",
+    textAlign: "center"
   }
 
   const practiceFusionLink = {
     color: "white",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
+    fontSize: "20px",
+    fontWeight: "bold",
+   textShadow: "10px 2px 9px black",
     position: "relative",
     top: "65vh",
     right: "-3vw" 
@@ -58,18 +58,18 @@ const Experience = () => {
 
   const mystyle = {
     color: "white",
-    "font-size": "60px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "60px",
+    fontWeight: "bold",
+   textShadow: "4px 4px 5px black",
+    textAlign: "center"
   };
 
   const descriptionStyle = {
     color: "white",
-    "font-size": "25px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
-    "text-align": "center",
+    fontSize: "25px",
+    fontWeight: "bold",
+   textShadow: "10px 2px 9px black",
+    textAlign: "center",
     
   };
 
@@ -77,10 +77,10 @@ const Experience = () => {
     position: "relative",
     top: "65vh",
     left: "8vh",
-    "font-size": "25px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 10px black",
-    "text-align": "center",
+    fontSize: "25px",
+    fontWeight: "bold",
+   textShadow: "10px 2px 10px black",
+    textAlign: "center",
     color: "white"
   }
 
@@ -94,19 +94,19 @@ const Experience = () => {
     top: "40vh",
     left: "1vh",
     color: "white",
-    "font-size": "15px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
-    "text-align": "center",
+    fontSize: "15px",
+    fontWeight: "bold",
+   textShadow: "10px 2px 9px black",
+    textAlign: "center",
     color: "white"
   }
 
   const descriptionStyleMobile = {
     color: "white",
-    "font-size": "18px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
-    "text-align": "center"
+    fontSize: "18px",
+    fontWeight: "bold",
+   textShadow: "10px 2px 9px black",
+    textAlign: "center"
   };
 
   const rogerDingWebMobile = {
@@ -115,19 +115,19 @@ const Experience = () => {
     top: "40vh",
     right: "7vh",
     color: "white",
-    "font-size": "15px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
-    "text-align": "center"
+    fontSize: "15px",
+    fontWeight: "bold",
+   textShadow: "10px 2px 9px black",
+    textAlign: "center"
   }
 
   
   const mystyleMobile = {
     color: "white",
-    "font-size": "40px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "40px",
+    fontWeight: "bold",
+   textShadow: "4px 4px 5px black",
+    textAlign: "center"
   };
 
   const channelStyleMobile = {
@@ -135,10 +135,10 @@ const Experience = () => {
     position: "absolute",
     top: "80vh",
     left: "3vh",
-    "font-size": "15px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 10px black",
-    "text-align": "center"
+    fontSize: "15px",
+    fontWeight: "bold",
+   textShadow: "10px 2px 10px black",
+    textAlign: "center"
   }
 
   
@@ -147,21 +147,21 @@ const Experience = () => {
     position: "absolute",
     top: "80vh",
     right: "3vh",
-    "font-size": "15px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
-    "text-align": "center"
+    fontSize: "15px",
+    fontWeight: "bold",
+   textShadow: "10px 2px 9px black",
+    textAlign: "center"
   }
 
   const infopage = {
     position: "relative",
     top: "20vh",
     right: "3vh",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
-    "text-align": "center",
-    "flexWrap": 'wrap',
+    fontSize: "20px",
+    fontWeight: "bold",
+    textShadow: "10px 2px 9px black",
+    textAlign: "center",
+    flexWrap: 'wrap',
     color: "white"
   }
   //Amazon Info

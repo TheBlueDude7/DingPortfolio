@@ -49,7 +49,6 @@ const ChickenSiren = ({positionx, positiony, positionz, xDirection, xRotation, y
   
       <Canvas
         shadows
-        gl={{ preserveDrawingBuffer: true }}      
       >
         {/* Creates the chickens on the scene, fills an array and assigns them unique keys */}
         <ChickenSiren />

@@ -63,6 +63,9 @@ const Bubbles = ({ isMobile, positionX, positionY, setFear, isScared, setKey, ke
     if(isHovering) {
       bubbleRef.current.rotation.x -= delta;
     }
+    if(bubbleRef.current.position.y < -1) {
+      bubbleRef.current.position.y = 0;
+    }
     if(headBobYSpeed < 0) {
         if(bobUp) {
             bobUp = false;
@@ -73,11 +76,11 @@ const Bubbles = ({ isMobile, positionX, positionY, setFear, isScared, setKey, ke
     }
     if(halfWay) {
         if(bobUp) {
-            bubbleRef.current.position.y += headBobYSpeed * delta * 30;
+            bubbleRef.current.position.y += headBobYSpeed * delta * 20;
             
             headBobYSpeed = headBobYSpeed + headBobChange;
         } else {
-            bubbleRef.current.position.y -= headBobYSpeed * delta * 30;
+            bubbleRef.current.position.y -= headBobYSpeed * delta * 20;
             headBobYSpeed = headBobYSpeed + headBobChange;
         }
         if(headBobYSpeed >= halfWayCounter) {
@@ -85,10 +88,10 @@ const Bubbles = ({ isMobile, positionX, positionY, setFear, isScared, setKey, ke
         }
     } else {
         if(bobUp) {
-            bubbleRef.current.position.y += headBobYSpeed * delta * 30;
+            bubbleRef.current.position.y += headBobYSpeed * delta * 20;
             headBobYSpeed = headBobYSpeed - headBobChange;
         } else {
-            bubbleRef.current.position.y -= headBobYSpeed * delta * 30;
+            bubbleRef.current.position.y -= headBobYSpeed * delta * 20;
             headBobYSpeed = headBobYSpeed - headBobChange;
         }
     }
@@ -131,7 +134,7 @@ deathSound.volume = 0.6;
 
 const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey, keyVal}) => {
   const bubbleRef = useRef();
-    let unhappy = useGLTF('./bubble/scared2.glb');   
+    let unhappy = useGLTF('./bubble/scared3.glb');   
 
   //Stuff for bobbing
   let headBobYSpeed = 0;
@@ -165,6 +168,9 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
   //Decide to rotate which way
 
    useFrame((state, delta) => {
+    if(bubbleRef.current.position.y < -1) {
+      bubbleRef.current.position.y = 0;
+    }
     if(hideKey == keyVal) {
       bubbleRef.current.visible = false;
     } else {
@@ -243,10 +249,10 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
     }
     if(halfWay) {
         if(bobUp) {
-            bubbleRef.current.position.y += headBobYSpeed * delta * 30;
+            bubbleRef.current.position.y += headBobYSpeed * delta * 20;
             headBobYSpeed = headBobYSpeed + headBobChange;
         } else {
-            bubbleRef.current.position.y -= headBobYSpeed * delta * 30;
+            bubbleRef.current.position.y -= headBobYSpeed * delta * 20;
             headBobYSpeed = headBobYSpeed + headBobChange;
         }
         if(headBobYSpeed >= halfWayCounter) {
@@ -254,10 +260,10 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
         }
     } else {
         if(bobUp) {
-            bubbleRef.current.position.y += headBobYSpeed * delta * 30;
+            bubbleRef.current.position.y += headBobYSpeed * delta * 20;
             headBobYSpeed = headBobYSpeed - headBobChange;
         } else {
-            bubbleRef.current.position.y -= headBobYSpeed * delta * 30;
+            bubbleRef.current.position.y -= headBobYSpeed * delta * 20;
             headBobYSpeed = headBobYSpeed - headBobChange;
         }
     }
@@ -361,9 +367,9 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
       <Canvas
       camera={{position: [0, 0, 10], fov: 60 }}
       >
-        {Array(5).fill().map((item, i) => <Bubbles key={i} positionY={isMobile ? 1.2 : 0.6} positionX={isMobile ? i - 2 : i * 3 - 5.7} setFear={setFear} isScared={scared} setKey={setKey} keyVal={i} isMobile={isMobile}/>)} 
-        {Array(5).fill().map((item, i) => <Unhappy key={i} positionY={isMobile ? 1.2 : 0.6} positionX={isMobile ? i - 2 : i * 3 - 5.7} setArray={setFear} isScared={scared} isRunning={running} hideKey={hideKey} keyVal={i} isMobile={isMobile}/>)}
-        {Array(3).fill().map((item, i) =>  <Chickens xPosition={12 + (Math.random() * 10)} yPosition={i * 1.4 - 2} copsAreHere={copTime} xRotation={Math.random() * 6 - 3}/>)}  
+        {Array(4).fill().map((item, i) => <Bubbles key={i} positionY={isMobile ? 1.2 : 0.6} positionX={isMobile ? i - 2 : i * 4 - 5.7} setFear={setFear} isScared={scared} setKey={setKey} keyVal={i} isMobile={isMobile}/>)} 
+        {Array(4).fill().map((item, i) => <Unhappy key={i} positionY={isMobile ? 1.2 : 0.6} positionX={isMobile ? i - 2 : i * 4 - 5.7} setArray={setFear} isScared={scared} isRunning={running} hideKey={hideKey} keyVal={i} isMobile={isMobile}/>)}
+        {Array(1).fill().map((item, i) =>  <Chickens xPosition={12 + (Math.random() * 10)} yPosition={i * 1.4 - 2} copsAreHere={copTime} xRotation={Math.random() * 6 - 3}/>)}  
        
         {/* {scaredArray[1]}
         {scaredArray[0]} */}

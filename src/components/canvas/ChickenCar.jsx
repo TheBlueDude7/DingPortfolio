@@ -65,7 +65,7 @@ const ChickenCar = ({ isMobile }) => {
         immediate: true
     });
 
-    const arrow = useGLTF('./car/arrow.glb');
+    const arrow = useGLTF('./car/arrowLow.glb');
     const arrowRef = useRef();
     return (
         <Float>
@@ -80,13 +80,14 @@ const ChickenCar = ({ isMobile }) => {
           />
         </mesh>
         </ animated.group>
-        </Float>
+         </Float>
       
       )
   }
 
-  const Sun = ({sun}) => {
+  const Sun = () => {
     const sunRef = useRef();
+    const sun = useLoader(FBXLoader, './car/sunfileLow.fbx');
     return (
         <mesh ref={sunRef}>
           <Float>
@@ -103,7 +104,8 @@ const ChickenCar = ({ isMobile }) => {
       )
   }
 
-  const Planet = ({isMobile, planet}) => {
+  const Planet = ({isMobile}) => {
+    const planet = useGLTF('./planet/earth.glb');
     const planetRef = useRef();
     useFrame(() => {
         planetRef.current.rotation.y += 0.01;
@@ -111,7 +113,7 @@ const ChickenCar = ({ isMobile }) => {
     return (
         <mesh ref={planetRef}>
           <primitive 
-            object={planet.scene}
+            object={planet.scene.clone()}
             scale={isMobile ? 0.4 : 0.8}
             position={isMobile ? [0, 1, 0] : [0, 0.5, 0]}
             rotation={[0, 0, 0]}
@@ -120,7 +122,7 @@ const ChickenCar = ({ isMobile }) => {
       )
   }
 
-  const Clock = ({}) => {
+  const Clock = () => {
     const clock = useGLTF('./planet/clock_low_poly.glb');
     const clockRef = useRef();
     useFrame(({}, delta) => {
@@ -143,7 +145,8 @@ const ChickenCar = ({ isMobile }) => {
       )
   }
 
-  const Road = ({ isMobile, road }) => {
+  const Road = ({ isMobile }) => {
+    const road = useGLTF('./car/longroad.glb');
     useEffect(() => {
         road.scene.traverse(
         child => {
@@ -184,23 +187,19 @@ const ChickenCarCanvas = () => {
         mediaQuery.removeEventListener('change', handleMediaQueryChange);
       }
     }, [])
-
-    const sun = useLoader(FBXLoader, './car/sunfileLow.fbx');
-    const planet = useGLTF('./planet/earth.glb');
-    const road = useGLTF('./car/longroad.glb');
   
     return (
   
       <Canvas
-        shadows
-        gl={{ preserveDrawingBuffer: true }}      
+        shadows   
       >
-        <Sun sun={sun}/>
-        <Planet isMobile={isMobile} planet={planet}/>
-        <Road isMobile={isMobile} road={road}/>
+        <Sun />
+        <Planet isMobile={isMobile} />
+        <Road isMobile={isMobile} />
         <ChickenCar isMobile={isMobile}/>
         <Arrow isMobile={isMobile}/>
         <Clock />
+      <Preload all />
       </Canvas>
     )
   } 

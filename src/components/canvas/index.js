@@ -1,4 +1,3 @@
-import EarthCanvas from "./Earth";
 import BallCanvas from "./Ball";
 import StarsCanvas from "./Stars";
 import CamerasCanvas from "./Cameras";
@@ -9,4 +8,4 @@ import chickenSirenCanvas from "./CopChicken"
 import HistoryCanvas from "./HistorySection"
 import ChickenCarCanvas from "./ChickenCar"
 
-export { EarthCanvas, BallCanvas, StarsCanvas, CamerasCanvas, ChickensCanvas, FacesCanvas, BubblesCanvas, chickenSirenCanvas, ChickenCarCanvas, HistoryCanvas};
+export { BallCanvas, StarsCanvas, CamerasCanvas, ChickensCanvas, FacesCanvas, BubblesCanvas, chickenSirenCanvas, ChickenCarCanvas, HistoryCanvas};

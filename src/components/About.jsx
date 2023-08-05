@@ -11,10 +11,10 @@ import { useInView } from 'react-intersection-observer';
 const About = () => {
   const mystyle = {
     color: "white",
-    "font-size": "60px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center",
+    fontSize: "60px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center",
   };
 
   //Second Text
@@ -22,10 +22,10 @@ const About = () => {
     position: "relative",
     top: "3vh",
     left: "0vh",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center",
+    fontSize: "20px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center",
     color: "white"
   }
    //Third Text
@@ -33,10 +33,10 @@ const About = () => {
     position: "relative",
     top: "6vh",
     left: "0vh",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center",
+    fontSize: "20px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center",
     color: "white"
   }
 
@@ -45,10 +45,10 @@ const About = () => {
     position: "relative",
     top: "9vh",
     left: "2.5vh",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center",
+    fontSize: "20px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center",
     color: "white"
   }
 
@@ -56,10 +56,10 @@ const About = () => {
     position: "relative",
     top: "80vh",
     left: "2.5vh",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center",
+    fontSize: "20px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center",
     color: "white"
   }
 
@@ -68,10 +68,10 @@ const About = () => {
 
   const mystyleMobile = {
     color: "white",
-    "font-size": "40px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "40px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center"
   };
 
   //Second Text
@@ -79,10 +79,10 @@ const About = () => {
     position: "relative",
     top: "10vh",
     left: "0.5vh",
-    "font-size": "15px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center",
+    fontSize: "15px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center",
     color: "white"
   }
 
@@ -91,10 +91,10 @@ const About = () => {
     position: "relative",
     top: "15vh",
     left: "0.5vh",
-    "font-size": "15px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center",
+    fontSize: "15px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center",
     color: "white"
   }
 
@@ -103,10 +103,10 @@ const About = () => {
     position: "relative",
     top: "20vh",
     left: "0.5vh",
-    "font-size": "15px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center",
+    fontSize: "15px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center",
     color: "white"
   }
 
@@ -115,10 +115,10 @@ const About = () => {
     position: "relative",
     top: "80vh",
     left: "2.5vh",
-    "font-size": "15px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center",
+    fontSize: "15px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center",
      color: "white"
   }
 
@@ -166,20 +166,8 @@ const About = () => {
 
   function stopAudio() {
     boomboxStop.play();
-    setVolume(0); 
-    setWorking(false);
     setBeatText("Why would you do that? So uncool.")
     setTopText("MY BOOMBOX! I SAID GENTLY!")
-  }
-
-  function highVolume() {
-    setVolume(0.15);
-  }
-
-  function lowVolume() {
-    if(workingRadio){
-      setVolume(0.1);
-    }
   }
 
   let boomboxStop = new Audio('/audio/nomoreboombox.mp3');
@@ -187,18 +175,17 @@ const About = () => {
   boomboxStop.volume = 0.5;
 
   return (
-    <div ref={viewRef} style={{height: 1000}} inView={inView}>  
+    <div ref={viewRef} style={{height: 1000}}>  
       <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}} > 
         <div className="absolute">
           <h1 style={isMobile ? mystyleMobile : mystyle}>About Me</h1>
           <h1 style={isMobile ? middleStyleMobile : middleStyle}>My name is Roger Ding, I'm a student at UW Madison.</h1>
           <h1 style={isMobile ? secondStyleMobile : secondStyle}>{topText}</h1>
           <h1 style={isMobile ? thirdStyleMobile : thirdStyle}>{beatText}</h1>
-          <h1 style={isMobile ? fourthStyleMobile : fourthStyle}> (Song is "If Heaven was a Sound" by Hotel Apache) </h1>
+          {/* <h1 style={isMobile ? fourthStyleMobile : fourthStyle}> (Song is "If Heaven was a Sound" by Hotel Apache) </h1> */}
         </div>
-        <HistoryCanvas stopAudio={stopAudio} highVolume={highVolume} lowVolume={lowVolume}/>
+        <HistoryCanvas stopAudio={stopAudio}/>
       </div> 
-      <ReactAudioPlayer ref={audioRef} loop={true} src="/audio/heavenSound.mp3" autoPlay volume={volumeVal}/>
     </div>
 
   )

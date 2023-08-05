@@ -3,12 +3,11 @@ import { Canvas, useFrame, useLoader  } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF} from '@react-three/drei';
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
-const ChickenFeed = ({angryBawk, xDirection, xRotation, yRotation, positionx, positiony, positionz, texture, isMobile}) => {
+const ChickenFeed = ({ xDirection, xRotation, yRotation, positionx, positiony, positionz, texture, isMobile}) => {
   let texturesMap = useLoader(TextureLoader, texture);
   const sphereRef = useRef(); 
-  // const angryBawk = new Audio('audio/bigBawk.mp3');
-
-  // angryBawk.volume = 0.3;
+  const angryBawk = useRef(new Audio('audio/bigBawk.mp3'));
+  angryBawk.current.volume = 0.3;
 
   useFrame((state, dt) => {
     if(xDirection >= 5) {
@@ -28,7 +27,7 @@ const ChickenFeed = ({angryBawk, xDirection, xRotation, yRotation, positionx, po
    });
 
    function isClicked() {
-    angryBawk.play();
+    angryBawk.current.play();
    }
 
   return (
@@ -42,8 +41,8 @@ const ChickenFeed = ({angryBawk, xDirection, xRotation, yRotation, positionx, po
   )
 }
 
-
-const Chickens = ({ isMobile, keyVal, angryBawk, chicken}) => {
+const Chickens = ({ isMobile, keyVal}) => {
+  const chicken = useGLTF('./chicken/chicken.glb');
   let xDirection = Math.random() * 10;
   let xRotation = Math.random() * 3;
   let yRotation = Math.random() * 3;
@@ -56,39 +55,34 @@ const Chickens = ({ isMobile, keyVal, angryBawk, chicken}) => {
 
   const chickenRef = useRef();
   
-  useFrame((state, dt) => {
+  useFrame((state, delta) => {
    if(xDirection >= 5) {
-    chickenRef.current.position.x += dt * xDirection/5;
+    chickenRef.current.position.x += delta * xDirection/5;
     if(chickenRef.current.position.x >= 7) {
       chickenRef.current.position.x = -7;
      }
    } else {
-    chickenRef.current.position.x -= dt * xDirection/5;
+    chickenRef.current.position.x -= delta * xDirection/5;
     if(chickenRef.current.position.x <= -7) {
       chickenRef.current.position.x = 7;
     }
    }
-   chickenRef.current.rotation.x += dt * xRotation;
-   chickenRef.current.rotation.y += dt * yRotation;
+   chickenRef.current.rotation.x += delta * xRotation;
+   chickenRef.current.rotation.y += delta * yRotation;
   //  chickenRef.current.rotation.z += dt * zRotation;
   });
-
-
 
   return (
     <mesh castShadow >
       <ambientLight intensity={0.05} />
-      <ChickenFeed isMobile={isMobile} positionx={xPos} positiony={yPos} positionz={zPos} xDirection={xDirection} xRotation={xRotation} yRotation={yRotation} texture={picturesMap[keyVal]} angryBawk={angryBawk}/>
+      <ChickenFeed isMobile={isMobile} positionx={xPos} positiony={yPos} positionz={zPos} xDirection={xDirection} xRotation={xRotation} yRotation={yRotation} texture={picturesMap[keyVal]}/>
       <primitive ref={chickenRef}
-        object={chicken}
-        scale={isMobile ? Math.random() * 3 + 1 : Math.random() * 3 + 2}
+        object={chicken.scene.clone()}
+        scale={isMobile ? Math.random() * 3 + 1 : Math.random() * 5 + 2}
         position={[xPos, yPos, zPos]}
         rotation={[Math.PI/Math.random() * 2, Math.random() * 2, Math.random() * 2]}
       />
     </mesh>
-
-   
-
   )
 }
 
@@ -109,25 +103,17 @@ const chickensCanvas = () => {
     }
   }, [])
 
-  const angryBawk = new Audio('audio/bigBawk.mp3');
-
-  angryBawk.volume = 0.3;
-
-  const chicken = useGLTF('./chicken/chicken.glb');
-
+ 
 
   return (
-
-    <Canvas
-      shadows
-      gl={{ preserveDrawingBuffer: true }}      
+    <Canvas   
     >
       {/* Creates the chickens on the scene, fills an array and assigns them unique keys */}
-      {new Array(11).fill().map((item, i) => <Chickens chicken={chicken.scene.clone()} key={i} keyVal={i} isMobile={isMobile} angryBawk={angryBawk}/> )}
-      {/* <Chickens position={[2, 0, 0]}/> */}
+      {new Array(8).fill().map((item, i) => <Chickens key={i} keyVal={i} isMobile={isMobile}/> )}
       <Suspense>
         <OrbitControls enableZoom={false} enabled={false} />
       </Suspense>
+      {/* <Preload all /> */}
     </Canvas>
   )
 }

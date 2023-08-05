@@ -44,21 +44,21 @@ const Feedbacks = () => {
 
   const bigText = {
     color: "white",
-    "font-size": "60px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "60px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center"
   }
 
   const channelStyleHide = {
     position: "absolute",
     top: "80vh",
     left: "-70vh",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center",
-    "visibility": "hidden"
+    fontSize: "20px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center",
+    visibility: "hidden"
   }
 
   //Second Text
@@ -66,10 +66,10 @@ const Feedbacks = () => {
     position: "absolute",
     top: "90vh",
     left: "0vh",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "20px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center"
   }
 
   //Star text
@@ -77,19 +77,19 @@ const Feedbacks = () => {
     position: "absolute",
     top: "80vh",
     right: "-50vh",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "20px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center"
   }
 
    //TextWhatOtherPeople
    const otherPeopleText = {
     position: "absolute",
-    "font-size": "18px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center",
+    fontSize: "18px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center",
      color: "white"
   }
 
@@ -98,19 +98,19 @@ const Feedbacks = () => {
 
   const bigTextMobile = {
     color: "white",
-    "font-size": "40px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "40px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center"
   }
 
   const otherPeopleTextMobile = {
     color: "white",
     position: "absolute",
-    "font-size": "14px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "14px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center"
   }
 
   const channelStyleMobile = {
@@ -118,10 +118,10 @@ const Feedbacks = () => {
     position: "absolute",
     top: "80vh",
     left: "-70vh",
-    "font-size": "10px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "10px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center"
   }
   return (
    

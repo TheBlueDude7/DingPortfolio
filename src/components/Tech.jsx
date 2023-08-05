@@ -26,18 +26,18 @@ const Tech = () => {
 
   const mystyle = {
     color: "white",
-    "font-size": "60px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "60px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center"
   };
 
   const descriptionStyle = {
     color: "white",
-    "font-size": "20px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
-    "text-align": "center"
+   fontSize: "20px",
+    fontWeight: "bold",
+    textShadow: "10px 2px 9px black",
+    textAlign: "center"
   };
 
   const lowerTextStyle = {
@@ -47,7 +47,7 @@ const Tech = () => {
 
   const textStyle = {
     color: "white",
-    "text-align": "center"
+    textAlign: "center"
   }
 
 
@@ -55,18 +55,18 @@ const Tech = () => {
 
   const myStyleMobile = {
     color: "white",
-    "font-size": "40px",
-    "font-weight": "bold",
-    "text-shadow": "4px 4px 5px black",
-    "text-align": "center"
+    fontSize: "40px",
+    fontWeight: "bold",
+    textShadow: "4px 4px 5px black",
+    textAlign: "center"
   };
 
   const descriptionStyleMobile = {
     color: "white",
-    "font-size": "16px",
-    "font-weight": "bold",
-    "text-shadow": "10px 2px 9px black",
-    "text-align": "center"
+    fontSize: "16px",
+    fontWeight: "bold",
+    textShadow: "10px 2px 9px black",
+    textAlign: "center"
   };
 
 
@@ -74,11 +74,9 @@ const Tech = () => {
     <div>
       <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}}>
       <ChickensCanvas />
-      <EarthCanvas />
       <div className="absolute">
         <h1 style={isMobile ? myStyleMobile : mystyle}>Skills</h1>
         <h1 style={isMobile ? descriptionStyleMobile : descriptionStyle}>Check out below to see the languages and software I know! Hover over each orb to learn - wait, what? Oh...</h1>
-        
       </div>
       <div style={lowerTextStyle}>
         <h1 style={isMobile ? descriptionStyleMobile : descriptionStyle}>Sorry about that, these feathery fellas are an amazing help... but - that happens sometimes, I don't think we're getting those back.</h1>

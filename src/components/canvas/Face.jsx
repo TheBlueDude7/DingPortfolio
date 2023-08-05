@@ -13,14 +13,14 @@ const FaceChicken = ({isMobile, height, isHovering, rotation, xPos}) => {
     let scaleVal = 0;
     let changeVal = 0;
     let noddingExcitement = Math.random();
-    useFrame(({viewport}, dt) => {
+    useFrame(({viewport}, delta) => {
         if(isHovering) {       
             if(goUp) {
                  if(changeVal >= 8) {
                     setUp(false);
                     scaleVal = 0.06 * noddingExcitement;
                 } else {
-                    chickenRef.current.position.y = chickenRef.current.position.y + scaleVal * dt * 100;
+                    chickenRef.current.position.y = chickenRef.current.position.y + scaleVal * delta * 100;
                     scaleVal += -0.005 * noddingExcitement; 
                     // faceRef.current.position.x = faceRef.current.position.x - 0.01;
                     changeVal++;
@@ -30,7 +30,7 @@ const FaceChicken = ({isMobile, height, isHovering, rotation, xPos}) => {
                     setUp(true);
                     scaleVal = 0.06 * noddingExcitement;
                 } else {
-                    chickenRef.current.position.y = chickenRef.current.position.y - scaleVal * dt * 100;
+                    chickenRef.current.position.y = chickenRef.current.position.y - scaleVal * delta * 100;
                     scaleVal += -0.005 * noddingExcitement;
                     changeVal--;
                 }
@@ -107,7 +107,7 @@ const Face = ({ isMobile, mouseCoordsRef, isHovering }) => {
         
     }
 
-    const face = useGLTF('./face/faceLow.glb')
+    const face = useGLTF('./face/facelow2.glb')
     const faceRef = useRef();
     //For head shake
     const [goUp, setUp] = useState(true);
@@ -123,7 +123,7 @@ const Face = ({ isMobile, mouseCoordsRef, isHovering }) => {
 
     const { camera, mouse } = useThree()
     let scaleVal = 0;
-    useFrame(({viewport}, dt) => {
+    useFrame(({viewport}, delta) => {
         var vector = new THREE.Vector3(mouseCoordsRef.current[0], mouseCoordsRef.current[1], 0.5);
         vector.unproject( camera );
         var dir = vector.sub( camera.position ).normalize();
@@ -134,25 +134,25 @@ const Face = ({ isMobile, mouseCoordsRef, isHovering }) => {
         if(isHovering) {       
             if(goUp) {
                 play();
-                if(changeVal >= 8) {
+                if(changeVal >= 1400 * delta) {
                     setUp(false);
                     scaleVal = 0.06;
                 } else {
                     faceRef.current.lookAt(x, y + changeVal/15, 1);
-                    faceRef.current.position.y = faceRef.current.position.y + scaleVal * dt;
-                    faceRef.current.rotation.x = faceRef.current.rotation.x + scaleVal * 2 * dt;
+                    faceRef.current.position.y = faceRef.current.position.y + scaleVal * delta;
+                    faceRef.current.rotation.x = faceRef.current.rotation.x + scaleVal * 2 * delta;
                     scaleVal += -0.005;
                     // faceRef.current.position.x = faceRef.current.position.x - 0.01;
                     changeVal++;
                 }
             } else {
-                if(changeVal <= -8) {
+                if(changeVal <= -1400 * delta) {
                     setUp(true);
                     scaleVal = 0.06;
                 } else {
                     faceRef.current.lookAt(x, y + changeVal/15, 1);
-                    faceRef.current.position.y = faceRef.current.position.y - scaleVal * dt;
-                    faceRef.current.rotation.x = faceRef.current.rotation.x - scaleVal * 2 * dt;
+                    faceRef.current.position.y = faceRef.current.position.y - scaleVal * delta;
+                    faceRef.current.rotation.x = faceRef.current.rotation.x - scaleVal * 2 * delta;
                     scaleVal += -0.005;
                     changeVal--;
                 }
