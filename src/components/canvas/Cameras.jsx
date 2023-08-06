@@ -2,6 +2,8 @@ import React from 'react'
 import { Suspense, useEffect, useState, useRef} from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF} from '@react-three/drei';
+import { createContext, useContext } from 'react';
+import { InViewContext } from '../RenderInView';
 
 const CameraChicken = ({isMobile}) => {
   const chicken = useGLTF('./chicken/chicken.glb')
@@ -57,6 +59,8 @@ const Cameras = ({ isMobile }) => {
   const CamerasCanvas = () => {
     const [isMobile, setMobile] = useState(false);
 
+    const inView = useContext(InViewContext);
+
     useEffect(() => {
       const mediaQuery = window.matchMedia('(max-width: 500px)');
       setMobile(mediaQuery.matches);
@@ -76,6 +80,7 @@ const Cameras = ({ isMobile }) => {
       frameloop="demand"
       shadows
       camera={{position: [20, 3, 5], fov: 25 }}
+      dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
       >
         
         <Suspense>
@@ -85,6 +90,7 @@ const Cameras = ({ isMobile }) => {
             autoRotateSpeed={1.3}
             maxPolarAngle={Math.PI / 2}
             minPolarAngle={Math.PI / 2}
+            
           />
           <CameraChicken isMobile={isMobile}/>
           <Cameras isMobile={isMobile}/>

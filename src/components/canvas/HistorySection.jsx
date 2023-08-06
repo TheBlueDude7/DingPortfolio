@@ -4,7 +4,9 @@ import { OrbitControls, Preload, useGLTF, useTexture, Text, Float} from '@react-
 import { useSpring, animated } from "@react-spring/three"
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+import { InViewContext } from '../RenderInView';
 import { useInView } from 'react-intersection-observer';
+import { createContext, useContext } from 'react';
 
 const Chicken = ({isMobile, changeChicken}) => {
   
@@ -24,17 +26,17 @@ const Chicken = ({isMobile, changeChicken}) => {
   })
 
   return (
-    // <Float speed={10}>
+    <Float speed={10}>
     <mesh castShadow>
       <ambientLight intensity={0.05} />
       <primitive ref={chickenRef}
         object={chicken.scene.clone()}
-        scale={2}
-        position={[1, 0, 1]}
+        scale={isMobile? 1 : 2}
+        position={isMobile ? [0.2, -1, 1] : [1, 0, 1]}
         rotation={[0, 1.2, 0]}
       />
     </mesh>
-    // </Float>
+    </Float>
   )
 }
 
@@ -91,8 +93,8 @@ const Radio = ({isMobile, stopAudio, setChicken}) => {
       <spotLight intensity={1} position={[1, 0, 0]}/>
       <primitive onMouse
         object={radio.scene}
-        scale={0.4}
-        position={isMobile ? [-1.5, -1, 0] : [0.5, 0, 0]}
+        scale={isMobile ? 0.2 : 0.4}
+        position={isMobile ? [0, -1, 0] : [0.5, 0, 0]}
         rotation={[0, 0, 0]}
       />
     </mesh>
@@ -235,6 +237,7 @@ const ChickenFirst = ({ isMobile }) => {
 
 const HistoryCanvas = ({stopAudio}) => {
     const [isMobile, setMobile] = useState(false);
+    const inView = useContext(InViewContext);
   
     useEffect(() => {
       const mediaQuery = window.matchMedia('(max-width: 500px)');
@@ -275,12 +278,13 @@ const HistoryCanvas = ({stopAudio}) => {
     return (
       <Canvas
         shadows   
+        dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
       >
-        <Radio stopAudio={stopAudio} setChicken={setChicken}/>
+        <Radio stopAudio={stopAudio} setChicken={setChicken} isMobile={isMobile}/>
         <ChickenFirst isMobile={isMobile}/>
         <ChickenSecond isMobile={isMobile}/>
         <Preload all />
-        <Chicken changeChicken={changeChicken}/>
+        <Chicken changeChicken={changeChicken} isMobile={isMobile}/>
       </Canvas>
     )
   } 

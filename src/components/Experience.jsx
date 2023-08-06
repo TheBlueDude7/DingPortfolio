@@ -164,6 +164,18 @@ const Experience = () => {
     flexWrap: 'wrap',
     color: "white"
   }
+
+  const infopageMobile = {
+    position: "relative",
+    top: "20vh",
+    right: "0vh",
+    fontSize: "15px",
+    fontWeight: "bold",
+    textShadow: "10px 2px 9px black",
+    textAlign: "center",
+    flexWrap: 'wrap',
+    color: "white"
+  }
   //Amazon Info
   function link1() {
     setHovering(true);
@@ -201,7 +213,7 @@ const Experience = () => {
           <a style={isMobile ? practiceFusionLinkMobile : practiceFusionLink} onMouseEnter={() => link4()} onMouseLeave={() => setHovering(false)} href="https://github.com/TechyChan/PracticeFusionTools">Practice Fusion tool!</a>
         </div>
         {isHovering && ( 
-            <h1 style={infopage}>{explanationText}</h1>)}
+            <h1 style={isMobile ? infopageMobile : infopage}>{explanationText}</h1>)}
         </div>
         
     </div>

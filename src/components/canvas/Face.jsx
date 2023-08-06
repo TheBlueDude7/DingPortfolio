@@ -4,6 +4,8 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 import { Vector3 } from 'three';
 import * as THREE from 'three';
+import { InViewContext } from '../RenderInView';
+import { createContext, useContext } from 'react';
 
 //Chickens that support the face nodding in canvas, appear only on the side when needed
 const FaceChicken = ({isMobile, height, isHovering, rotation, xPos}) => {
@@ -131,32 +133,59 @@ const Face = ({ isMobile, mouseCoordsRef, isHovering }) => {
         var pos = camera.position.clone().add( dir.multiplyScalar( distance ) );
         const x = (pos.x * viewport.width) / 3;
         const y = (pos.y * viewport.height) / 2;
-        if(isHovering) {       
-            if(goUp) {
-                play();
-                if(changeVal >= 1400 * delta) {
-                    setUp(false);
-                    scaleVal = 0.06;
+        if(isHovering) { 
+            if(!isMobile) {
+                if(goUp) {
+                    play();
+                    if(changeVal >= 1400 * delta) {
+                        setUp(false);
+                        scaleVal = 0.06;
+                    } else {
+                        faceRef.current.lookAt(x, y + changeVal/15, 1);
+                        faceRef.current.position.y = faceRef.current.position.y + scaleVal * delta;
+                        faceRef.current.rotation.x = faceRef.current.rotation.x + scaleVal * 2 * delta;
+                        scaleVal += -0.005;
+                        // faceRef.current.position.x = faceRef.current.position.x - 0.01;
+                        changeVal++;
+                    }
                 } else {
-                    faceRef.current.lookAt(x, y + changeVal/15, 1);
-                    faceRef.current.position.y = faceRef.current.position.y + scaleVal * delta;
-                    faceRef.current.rotation.x = faceRef.current.rotation.x + scaleVal * 2 * delta;
-                    scaleVal += -0.005;
-                    // faceRef.current.position.x = faceRef.current.position.x - 0.01;
-                    changeVal++;
+                    if(changeVal <= -1400 * delta) {
+                        setUp(true);
+                        scaleVal = 0.06;
+                    } else {
+                        faceRef.current.lookAt(x, y + changeVal/15, 1);
+                        faceRef.current.position.y = faceRef.current.position.y - scaleVal * delta;
+                        faceRef.current.rotation.x = faceRef.current.rotation.x - scaleVal * 2 * delta;
+                        scaleVal += -0.005;
+                        changeVal--;
+                    }
                 }
             } else {
-                if(changeVal <= -1400 * delta) {
-                    setUp(true);
-                    scaleVal = 0.06;
+                if(goUp) {
+                    play();
+                    if(changeVal >= 100 * delta) {
+                        setUp(false);
+                        scaleVal = 0.06;
+                    } else {
+                        faceRef.current.lookAt(x, y + changeVal/15, 1);
+                        faceRef.current.position.y = faceRef.current.position.y + (scaleVal * 0.1 * delta);
+                        scaleVal += -0.005;
+                        // faceRef.current.position.x = faceRef.current.position.x - 0.01;
+                        changeVal++;
+                    }
                 } else {
-                    faceRef.current.lookAt(x, y + changeVal/15, 1);
-                    faceRef.current.position.y = faceRef.current.position.y - scaleVal * delta;
-                    faceRef.current.rotation.x = faceRef.current.rotation.x - scaleVal * 2 * delta;
-                    scaleVal += -0.005;
-                    changeVal--;
+                    if(changeVal <= -100 * delta) {
+                        setUp(true);
+                        scaleVal = 0.06;
+                    } else {
+                        faceRef.current.lookAt(x, y + changeVal/15, 1);
+                        faceRef.current.position.y = faceRef.current.position.y - (scaleVal * 0.1 * delta);
+                        scaleVal += -0.005;
+                        changeVal--;
+                    }
                 }
-            }
+            } 
+            
         } else {
             scaleVal = 0;
             faceRef.current.position.x = 0;
@@ -204,6 +233,7 @@ function Rig({mouseCoordsRef}) {
 const FacesCanvas = ({isHovering}) => {
     const mouseCoordsRef = useRef([]);
     const canvasRef = useRef();
+    const inView = useContext(InViewContext);
 
     const [isMobile, setMobile] = useState(false);
 
@@ -233,6 +263,9 @@ const FacesCanvas = ({isHovering}) => {
             ref={canvasRef}
             shadows
             camera={{ position: [20, 3, 5], fov: 25 }}
+            dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/15}
+            antialias={false}
+            
         >
             
             <Suspense>

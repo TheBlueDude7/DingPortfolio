@@ -2,6 +2,8 @@ import React, { Suspense, useEffect, useState, useRef } from 'react'
 import { Canvas, useFrame, useLoader  } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF} from '@react-three/drei';
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
+import { createContext, useContext } from 'react';
+import { InViewContext } from '../RenderInView';
 
 const ChickenFeed = ({ xDirection, xRotation, yRotation, positionx, positiony, positionz, texture, isMobile}) => {
   let texturesMap = useLoader(TextureLoader, texture);
@@ -88,6 +90,7 @@ const Chickens = ({ isMobile, keyVal}) => {
 
 const chickensCanvas = () => {
   const [isMobile, setMobile] = useState(false);
+  const inView = useContext(InViewContext);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 500px)');
@@ -107,6 +110,8 @@ const chickensCanvas = () => {
 
   return (
     <Canvas   
+    dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
+    antialias={false}
     >
       {/* Creates the chickens on the scene, fills an array and assigns them unique keys */}
       {new Array(8).fill().map((item, i) => <Chickens key={i} keyVal={i} isMobile={isMobile}/> )}

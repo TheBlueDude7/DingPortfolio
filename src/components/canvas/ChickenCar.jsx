@@ -3,7 +3,8 @@ import { Canvas, useFrame, useThree, useLoader, extend } from '@react-three/fibe
 import { OrbitControls, Preload, useGLTF, useTexture, Text, Float} from '@react-three/drei';
 import { useSpring, animated } from "@react-spring/three"
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
-
+import { createContext, useContext } from 'react';
+import { InViewContext } from '../RenderInView';
 
 const ChickenCar = ({ isMobile }) => {
   const chickenCar = useGLTF('./car/carChickenSwarm.glb')
@@ -173,7 +174,8 @@ const ChickenCar = ({ isMobile }) => {
 
 const ChickenCarCanvas = () => {
     const [isMobile, setMobile] = useState(false);
-  
+    const inView = useContext(InViewContext);
+
     useEffect(() => {
       const mediaQuery = window.matchMedia('(max-width: 500px)');
       setMobile(mediaQuery.matches);
@@ -192,6 +194,8 @@ const ChickenCarCanvas = () => {
   
       <Canvas
         shadows   
+        dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/15}
+        antialias={false}
       >
         <Sun />
         <Planet isMobile={isMobile} />

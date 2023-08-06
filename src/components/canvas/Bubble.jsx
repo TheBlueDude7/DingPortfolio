@@ -2,6 +2,8 @@ import React, { Suspense, useEffect, useState, useRef } from 'react'
 import { Canvas, useFrame, useThree, useLoader, extend, CameraShake  } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF, useTexture, Text} from '@react-three/drei';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+import { createContext, useContext } from 'react';
+import { InViewContext } from '../RenderInView';
 
 let move = false;
 let movedOnce = false;
@@ -98,7 +100,7 @@ const Bubbles = ({ isMobile, positionX, positionY, setFear, isScared, setKey, ke
   })
 
 let deathSound = new Audio('audio/DeathSound.mp3');
-deathSound.volume = 0.6;
+deathSound.volume = 0.3;
 
  function isClicked() {
   setKey(keyVal);
@@ -124,7 +126,7 @@ deathSound.volume = 0.6;
       <ambientLight intensity={0.3}/>
       <primitive 
         object={bubble.scene.clone()}
-        scale={isMobile ? 0.005 : 0.4}
+        scale={isMobile ? 0.3 : 0.4}
         position={[positionX, positionY, 0]}
         rotation={[0, 0, 0]}
       />
@@ -276,7 +278,7 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
         <ambientLight intensity={0.05}/>
         <primitive 
           object={unhappy.scene.clone()}
-          scale={isMobile ? 0.115 : 0.23}
+          scale={isMobile ? 0.2 : 0.23}
           position={[positionX, positionY, 0]}
           rotation={[0, 0, 0]}
         />
@@ -307,11 +309,14 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
     let scared6 = new Audio('/audio/Scream6.mp3');
     let initialSound = new Audio('/audio/Initial.mp3');
 
-    scared0.volume = 0.6;
-    scared1.volume = 0.6;
-    scared2.volume = 0.6;
-    scared3.volume = 0.6;
-    initialSound.volume = 0.6;
+    scared0.volume = 0.3;
+    scared1.volume = 0.3;
+    scared2.volume = 0.3;
+    scared3.volume = 0.3;
+    scared4.volume = 0.3;
+    scared5.volume = 0.3;
+    scared6.volume = 0.3;
+    initialSound.volume = 0.3;
     initialSound.onended = function() {
       setRunning(true);
       scared0.play();
@@ -326,6 +331,8 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
    scared6.onended = function() {
       setCopTime(true);
    }
+
+   const inView = useContext(InViewContext);
 
     //Effect to determine when the guys should start moving
     useEffect(() => {
@@ -366,9 +373,10 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
     return (
       <Canvas
       camera={{position: [0, 0, 10], fov: 60 }}
+      dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
       >
-        {Array(4).fill().map((item, i) => <Bubbles key={i} positionY={isMobile ? 1.2 : 0.6} positionX={isMobile ? i - 2 : i * 4 - 5.7} setFear={setFear} isScared={scared} setKey={setKey} keyVal={i} isMobile={isMobile}/>)} 
-        {Array(4).fill().map((item, i) => <Unhappy key={i} positionY={isMobile ? 1.2 : 0.6} positionX={isMobile ? i - 2 : i * 4 - 5.7} setArray={setFear} isScared={scared} isRunning={running} hideKey={hideKey} keyVal={i} isMobile={isMobile}/>)}
+        {Array(4).fill().map((item, i) => <Bubbles key={i} positionY={isMobile ? 1 : 0.6} positionX={isMobile ? i * 2 - 4 : i * 4 - 5.7} setFear={setFear} isScared={scared} setKey={setKey} keyVal={i} isMobile={isMobile}/>)} 
+        {Array(4).fill().map((item, i) => <Unhappy key={i} positionY={isMobile ? 1 : 0.6} positionX={isMobile ? i * 2 - 4: i * 4 - 5.7} setArray={setFear} isScared={scared} isRunning={running} hideKey={hideKey} keyVal={i} isMobile={isMobile}/>)}
         {Array(1).fill().map((item, i) =>  <Chickens xPosition={12 + (Math.random() * 10)} yPosition={i * 1.4 - 2} copsAreHere={copTime} xRotation={Math.random() * 6 - 3}/>)}  
        
         {/* {scaredArray[1]}

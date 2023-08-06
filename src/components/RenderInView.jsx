@@ -14,6 +14,9 @@
 // export default RenderInView;
 
 import { useInView } from 'react-intersection-observer';
+import { createContext, useContext } from 'react';
+
+export const InViewContext = createContext(false); 
 
 const RenderInView = ({children, height="1000px"}) => {
     const { ref, inView, entry } = useInView({
@@ -22,9 +25,9 @@ const RenderInView = ({children, height="1000px"}) => {
 
     return (
         <div ref={ref} style={{height}}>
-            <div style={{display: inView ? "block" : "none"}}>
+            <InViewContext.Provider value={inView}>
                 {children}
-            </div>
+            </InViewContext.Provider>
         </div>
     )
 }
