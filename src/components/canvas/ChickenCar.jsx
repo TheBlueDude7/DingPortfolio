@@ -5,6 +5,8 @@ import { useSpring, animated } from "@react-spring/three"
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 import { createContext, useContext } from 'react';
 import { InViewContext } from '../RenderInView';
+import { Html, useProgress } from '@react-three/drei'
+import { LoadingContext } from '../DynamicCanvas';
 
 const ChickenCar = ({ isMobile }) => {
   const chickenCar = useGLTF('./car/carChickenSwarm.glb')
@@ -173,6 +175,7 @@ const ChickenCar = ({ isMobile }) => {
   }
 
 const ChickenCarCanvas = () => {
+    const { progress } = useProgress();
     const [isMobile, setMobile] = useState(false);
     const inView = useContext(InViewContext);
 

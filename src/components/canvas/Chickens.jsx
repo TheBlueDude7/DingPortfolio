@@ -4,6 +4,9 @@ import { OrbitControls, Preload, useGLTF} from '@react-three/drei';
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { createContext, useContext } from 'react';
 import { InViewContext } from '../RenderInView';
+import { LoadingContext } from '../DynamicCanvas';
+import { Html, useProgress } from '@react-three/drei'
+
 
 const ChickenFeed = ({ xDirection, xRotation, yRotation, positionx, positiony, positionz, texture, isMobile}) => {
   let texturesMap = useLoader(TextureLoader, texture);
@@ -89,6 +92,7 @@ const Chickens = ({ isMobile, keyVal}) => {
 }
 
 const chickensCanvas = () => {
+  const { progress } = useProgress();
   const [isMobile, setMobile] = useState(false);
   const inView = useContext(InViewContext);
 
@@ -106,9 +110,9 @@ const chickensCanvas = () => {
     }
   }, [])
 
- 
 
   return (
+    <>
     <Canvas   
     dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
     antialias={false}
@@ -120,6 +124,7 @@ const chickensCanvas = () => {
       </Suspense>
       {/* <Preload all /> */}
     </Canvas>
+    </>
   )
 }
 

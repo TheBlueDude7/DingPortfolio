@@ -4,6 +4,12 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF} from '@react-three/drei';
 import { createContext, useContext } from 'react';
 import { InViewContext } from '../RenderInView';
+import { Html, useProgress } from '@react-three/drei'
+
+
+function loadAssets() {
+
+}
 
 const CameraChicken = ({isMobile}) => {
   const chicken = useGLTF('./chicken/chicken.glb')
@@ -56,9 +62,12 @@ const Cameras = ({ isMobile }) => {
   )
 }
 
-  const CamerasCanvas = () => {
+  const CamerasCanvas = ({setLoading}) => {
     const [isMobile, setMobile] = useState(false);
-
+    const { progress } = useProgress();
+    if(progress >= 100) {
+      setLoading(true);
+    }
     const inView = useContext(InViewContext);
 
     useEffect(() => {
@@ -68,6 +77,8 @@ const Cameras = ({ isMobile }) => {
       const handleMediaQueryChange = (event) => {
         setMobile(event.matches);
       }
+
+   
 
       mediaQuery.addEventListener('change', handleMediaQueryChange);
       return () => {
@@ -97,6 +108,7 @@ const Cameras = ({ isMobile }) => {
         </Suspense>
         <Preload all />
       </Canvas>
+      
     )
   }
 

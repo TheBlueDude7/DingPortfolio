@@ -265,7 +265,6 @@ const FacesCanvas = ({isHovering}) => {
             camera={{ position: [20, 3, 5], fov: 25 }}
             dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/15}
             antialias={false}
-            
         >
             
             <Suspense>

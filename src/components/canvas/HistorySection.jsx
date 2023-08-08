@@ -5,7 +5,6 @@ import { useSpring, animated } from "@react-spring/three"
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 import { InViewContext } from '../RenderInView';
-import { useInView } from 'react-intersection-observer';
 import { createContext, useContext } from 'react';
 
 const Chicken = ({isMobile, changeChicken}) => {
@@ -279,6 +278,7 @@ const HistoryCanvas = ({stopAudio}) => {
       <Canvas
         shadows   
         dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
+        antialias={false}
       >
         <Radio stopAudio={stopAudio} setChicken={setChicken} isMobile={isMobile}/>
         <ChickenFirst isMobile={isMobile}/>

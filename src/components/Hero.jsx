@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
 import { CamerasCanvas } from './canvas';
-const Hero = () => {
+const Hero = ({setLoading}) => {
   const [isMobile, setMobile] = useState(false);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Hero = () => {
           <p1></p1>
         </div>
       </div>
-      <CamerasCanvas/>
+      <CamerasCanvas setLoading={setLoading}/>
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a

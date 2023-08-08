@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ChickenCarCanvas } from "./canvas"
  
-const Contact = () => {
+const Contact = ({setLoading}) => {
   const [isMobile, setMobile] = useState(false);
   
   useEffect(() => {
@@ -95,7 +95,7 @@ const Contact = () => {
   return (
     <div>
         <div className="flex flex-row flex-wrap justify-center" style={{height:"1000px"}}>
-        <ChickenCarCanvas/>
+        <ChickenCarCanvas setLoading={setLoading}/>
         <div className="absolute">
           <h1 style={isMobile ? mystyleMobile : mystyle}> Contact Me</h1>
           <h1 style={isMobile ? descriptionStyleMobile : descriptionStyle}> You can find me at rogerliuding@gmail.com!</h1>
