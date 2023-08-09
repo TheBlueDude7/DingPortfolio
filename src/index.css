@@ -221,6 +221,12 @@
   100%   { transform: translate(0px, -0px); }   
 }
 
+.noShow {
+  visibility: hidden;
+  position: absolute;
+  z-index: -999;
+}
+
 .channelStyle {
   color: white;
   position: relative;
@@ -326,8 +332,25 @@ body {
 /* Loading Screen Classes */
 
 .loading {
-  color: blue;
   text-align: center;
+}
+
+.textLoading {
+  top: 70vh;
+  text-shadow: 10px;
+  color: black;
+  font-size: 30px;
+  animation: textBob;
+  animation-duration: 4s;
+}
+
+.hiddenChicken {
+  animation: hide;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  text-align: center;
+
 }
 
 .chicken {
@@ -348,6 +371,8 @@ body {
   border-bottom-left-radius: 300px;
   border-bottom-right-radius: 500px;
   background: bisque;
+  animation: body infinite;
+  animation-duration: 4s;
 }
 
 .body::after {
@@ -373,6 +398,8 @@ body {
   height: 50px;
   background: bisque;
   border-top-right-radius: 23123px;
+  animation: head infinite;
+  animation-duration: 4s;
 }
 
 .head::after {
@@ -403,10 +430,14 @@ body {
 
 .leg.one {
   left: 40%;
+  animation: moveLeftLeg infinite;
+  animation-duration: 4s;
 }
 
 .leg.two {
   left: 36%;
+  animation: moveRightLeg infinite;
+  animation-duration: 4s;
 }
 
 .leg {
@@ -415,6 +446,8 @@ body {
   width: 2px;
   height: 20px;
   background: darkorange;
+  animation: legs infinite;
+  animation-duration: 4s;
 }
 
 .leg::after {
@@ -493,12 +526,102 @@ body {
     left: -18px;
     rotate: 0deg;
   }
-  50% {
+  40% {
     left: -140px;
     top: -50px;
     rotate: 270deg;
   }
-  100% {
+  80% {
+    rotate: 0deg;
+    left: -18px;
+  }
+}
+
+@keyframes moveLeftLeg {
+  0% {
+    left: 80px;
+    top: 80px;
     rotate: 0deg;
   }
+  40% {
+    top: 140px;
+    rotate: 1000deg;
+    left: 180px;
+  }
+  80% {
+    left: 80px;
+    top: 80px;
+    rotate: 0deg;
+  }
+}
+
+@keyframes moveRightLeg {
+    0% {
+      top: 80px;
+      left: 70px;
+      rotate: 0deg;
+    }
+    40% {
+      top: 140px;
+      rotate: 1000deg;
+      left: -50px;
+    }
+    80% {
+      top: 80px;
+      rotate: 0deg;
+      left: 70px;
+    }
+  }
+
+@keyframes body {
+  0% {
+    fill-opacity: 100%;
+    left: 0px;
+  } 
+  40% {
+    fill-opacity: 0%;
+    left: 50px;
+  }
+  80% {
+    fill-opacity: 100%;
+    left: 0px;
+  }
+}
+
+@keyframes head{
+  0% {
+    border-top-right-radius: 50px;
+    rotate: 0deg;
+  }
+  40% {
+    border-top-right-radius: 0px;
+    rotate: 10deg;
+  }
+  80% {
+    border-top-right-radius: 50px;
+    rotate: 0deg;
+  }
+}
+@keyframes legs {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: orangered;
+  }
+  100% {
+    background-color: red; 
+  }
+}
+
+@keyframes hide {
+  0% { opacity: 1;}
+  99% { opacity: 0.01;width: 100%; height: 100%;}
+  100% { opacity: 0;width: 0; height: 0;}
+}
+
+@keyframes textBob {
+  0% {top: 0px}
+  50% {top: 20px}
+  100% {top: 0px}
 }

@@ -27,7 +27,7 @@ const Navbar = () => {
         <img src={"./chickenIcon.png"} width="30" height="30"/>
         <p className="text-white text-[23px] 
         font-bold cursor-pointer flex" > Roger
-        &nbsp; <span className="sm:block hidden">
+        &nbsp; <span className="sm:block">
         Ding</span></p>
         </a>
         

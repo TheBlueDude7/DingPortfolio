@@ -2,14 +2,18 @@ import React from 'react'
 import { Suspense, useEffect, useState, useRef} from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF} from '@react-three/drei';
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 import { InViewContext } from '../RenderInView';
 import { Html, useProgress } from '@react-three/drei'
+import { throttle } from 'lodash';
 
-
-function loadAssets() {
-
+function Loader() {
+  const { progress } = useProgress()
+  return <>
+    
+  </>
 }
+
 
 const CameraChicken = ({isMobile}) => {
   const chicken = useGLTF('./chicken/chicken.glb')
@@ -62,12 +66,35 @@ const Cameras = ({ isMobile }) => {
   )
 }
 
+  const useSmartProgress = () => {
+    const [smartProgress, setSmartProgress] = useState(0);
+    const { progress } = useProgress(); 
+
+    const throttledSetProgress = useMemo(() => {
+      return throttle((p) => {setSmartProgress(p)}, 500);
+    }, [setSmartProgress])
+    useEffect(() => { 
+      throttledSetProgress(progress);
+    }, [throttledSetProgress, progress])
+
+    return smartProgress;
+  }
+
   const CamerasCanvas = ({setLoading}) => {
+    const progress = useSmartProgress();
+    const [loading, finishedLoading] = useState(false);
+
+    useEffect(() => {
+      console.log("uh oh");
+      if(progress >= 100) {
+        if(!loading) {
+          finishedLoading(true);
+          setLoading(true);
+        }  
+      }
+    }, [progress])
+      
     const [isMobile, setMobile] = useState(false);
-    const { progress } = useProgress();
-    if(progress >= 100) {
-      setLoading(true);
-    }
     const inView = useContext(InViewContext);
 
     useEffect(() => {
@@ -87,6 +114,7 @@ const Cameras = ({ isMobile }) => {
     }, [])
 
     return (
+      <>
       <Canvas
       frameloop="demand"
       shadows
@@ -94,7 +122,7 @@ const Cameras = ({ isMobile }) => {
       dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
       >
         
-        <Suspense>
+        <Suspense fallback={<Loader />}>
           <OrbitControls enableZoom={false} 
             enablePan={false}
             autoRotate={true}
@@ -105,10 +133,10 @@ const Cameras = ({ isMobile }) => {
           />
           <CameraChicken isMobile={isMobile}/>
           <Cameras isMobile={isMobile}/>
-        </Suspense>
+        </Suspense >
         <Preload all />
       </Canvas>
-      
+      </>
     )
   }
 
