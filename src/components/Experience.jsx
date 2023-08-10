@@ -203,7 +203,7 @@ const Experience = () => {
   return (
     <div>
         <div className="flex flex-row flex-wrap justify-center" style={{height: 700}}>
-        <FacesCanvas isHovering={isHovering}/>
+        {/* <FacesCanvas isHovering={isHovering}/> */}
         <div style={linksStyle}>
           <h1 style={isMobile ? mystyleMobile : mystyle}>My Projects</h1>
           <h1 style={isMobile ? descriptionStyleMobile : descriptionStyle}>To get started, have a look at my projects list! I'm even here to help you out!</h1>
