@@ -175,7 +175,6 @@ const ChickenCar = ({ isMobile }) => {
   }
 
 const ChickenCarCanvas = () => {
-    const { progress } = useProgress();
     const [isMobile, setMobile] = useState(false);
     const inView = useContext(InViewContext);
 
@@ -206,7 +205,7 @@ const ChickenCarCanvas = () => {
         <ChickenCar isMobile={isMobile}/>
         <Arrow isMobile={isMobile}/>
         <Clock />
-      <Preload all />
+      {/* <Preload all /> */}
       </Canvas>
     )
   } 

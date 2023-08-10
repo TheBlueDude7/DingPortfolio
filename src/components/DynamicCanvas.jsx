@@ -12,7 +12,8 @@ export default function DynamicCanvas() {
   const [finishedLoading, setLoading] = useState(false);
   const [displayItems, setDisplay] = useState(false);
   const [loadingStatuses, setStatuses] = useState([true, ...Array(sections.length - 1).fill(false)]);
-
+  const [noShow, setNoShow] = useState(false);
+  const [noLoad, setNoLoad] = useState(false);
   function timeout(delay) {
     return new Promise( res => setTimeout(res, delay) );
  }
@@ -34,18 +35,21 @@ useEffect(() => {
   setTimeout(() => {
     setDisplay(true);
   }, 3000)
+  setTimeout(() => {
+    setNoShow(true);
+  }, 5000)
   for(let i = 0; i < sections.length; i++) {
     setTimeout(() => {
       setStatuses([...Array(j + 1).fill(true), ...Array(sections.length - j).fill(false)])
       j++;
-    }, i * 1000);
+    }, (i * 1000));
   }
 }, [])
 
   //displayItems ? 'none' : 
   return (
-    <div>
-       <div className={displayItems ? "hiddenChicken" : "loading"}  style={{height: "100vh", position: "fixed", top: "0", left: "0", width: "100vw", backgroundColor: "white", zIndex: 100, overflowY: "hidden" }}>
+    <div style={{overflowY: "hidden"}}>
+       <div className={displayItems ? "hiddenChicken" : "loading"}  style={{height: "100vh", position: "fixed", top: "0", left: "0", width: "100vw", backgroundColor: "white", zIndex: 900, overflowY: "hidden" }}>
         <h1 class="textLoading">Generating Feathers...</h1>
         <div class="chicken" >
           <div class="head">
@@ -61,9 +65,9 @@ useEffect(() => {
       <div >
         <Navbar />
         {sections.map((Section, i) => 
-        <div className={backgrounds[i] + " bg-cover bg-no-repeat bg-center"}>
+        <div style={{visible: noShow ? "visible" : "hidden", height: loadingStatuses[3] ? "" : "0px"}} className={backgrounds[i] + " bg-cover bg-no-repeat bg-center"} >
           <RenderInView >
-           {loadingStatuses[i] && <Section setLoading={setLoading} key={i}/>}
+           {loadingStatuses[i] && <Section setLoading={setLoading} noShow={noShow} key={i}/>}
           </RenderInView>
         </div>
         )}

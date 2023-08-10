@@ -140,7 +140,7 @@ const Cameras = ({ isMobile }) => {
           <CameraChicken isMobile={isMobile}/>
           <Cameras isMobile={isMobile}/>
         </Suspense >
-        <Preload all />
+        {/* <Preload all /> */}
       </Canvas>
       </>
     )
