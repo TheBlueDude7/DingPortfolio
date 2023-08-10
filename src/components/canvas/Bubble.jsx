@@ -385,7 +385,7 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
         <Suspense>
           <OrbitControls enabled={false}/>
         </Suspense>
-        <Preload all />
+        {/* <Preload all /> */}
       </Canvas>
     )
   }

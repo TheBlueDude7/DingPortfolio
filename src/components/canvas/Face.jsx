@@ -280,9 +280,10 @@ const FacesCanvas = ({isHovering}) => {
             <FaceChicken height={-0.8} isHovering={isHovering} rotation={3.5} xPos={-3.5}/>
             <FaceChicken height={0.4} isHovering={isHovering} rotation={0.5} xPos={3.5}/>
             <FaceChicken height={-0.8} isHovering={isHovering} rotation={0.5} xPos={3.5}/>
-            <Preload all />
+            {/* <Preload all /> */}
             <Rig mouseCoordsRef={mouseCoordsRef}/>
         </Canvas>
+        
     )
 }
 

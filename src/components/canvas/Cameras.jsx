@@ -1,11 +1,12 @@
 import React from 'react'
-import { Suspense, useEffect, useState, useRef} from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Suspense, useEffect, useState, useRef, useLayoutEffect} from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF} from '@react-three/drei';
 import { createContext, useContext, useMemo } from 'react';
 import { InViewContext } from '../RenderInView';
 import { Html, useProgress } from '@react-three/drei'
 import { throttle } from 'lodash';
+import { useAsset } from "use-asset";
 
 function Loader() {
   const { progress } = useProgress()
@@ -14,6 +15,11 @@ function Loader() {
   </>
 }
 
+function precompile() {
+  const { gl, scene, camera } = useThree()
+  useLayoutEffect(() => void gl.compile(scene, camera), [])
+  return null
+}
 
 const CameraChicken = ({isMobile}) => {
   const chicken = useGLTF('./chicken/chicken.glb')

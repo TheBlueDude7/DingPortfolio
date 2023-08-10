@@ -283,7 +283,7 @@ const HistoryCanvas = ({stopAudio}) => {
         <Radio stopAudio={stopAudio} setChicken={setChicken} isMobile={isMobile}/>
         <ChickenFirst isMobile={isMobile}/>
         <ChickenSecond isMobile={isMobile}/>
-        <Preload all />
+        {/* <Preload all /> */}
         <Chicken changeChicken={changeChicken} isMobile={isMobile}/>
       </Canvas>
     )

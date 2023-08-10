@@ -122,7 +122,7 @@ const chickensCanvas = () => {
       <Suspense>
         <OrbitControls enableZoom={false} enabled={false} />
       </Suspense>
-      <Preload all /> 
+      {/* <Preload all />  */}
     </Canvas>
     </>
   )
