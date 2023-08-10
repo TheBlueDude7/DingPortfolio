@@ -8,6 +8,7 @@ import ReactAudioPlayer from 'react-audio-player';
 import { useInView } from 'react-intersection-observer';
 
 
+
 const About = () => {
   const mystyle = {
     color: "white",
