@@ -44,7 +44,7 @@ useEffect(() => {
 
   //displayItems ? 'none' : 
   return (
-    <div style={{overflowY: displayItems ? "scroll" : "hidden"}}>
+    <div>
        <div className={displayItems ? "hiddenChicken" : "loading"}  style={{height: "100vh", position: "fixed", top: "0", left: "0", width: "100vw", backgroundColor: "white", zIndex: 100, overflowY: "hidden" }}>
         <h1 class="textLoading">Generating Feathers...</h1>
         <div class="chicken" >

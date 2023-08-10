@@ -340,8 +340,6 @@ body {
   text-shadow: 10px;
   color: black;
   font-size: 30px;
-  animation: textBob;
-  animation-duration: 4s;
 }
 
 .hiddenChicken {
