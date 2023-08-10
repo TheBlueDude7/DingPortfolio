@@ -109,7 +109,8 @@ const Face = ({ isMobile, mouseCoordsRef, isHovering }) => {
         
     }
 
-    const face = useGLTF('./face/faceLow3.glb')
+    // ]let bubble = useLoader(FBXLoader, './bubble/smiledude3.fbx')
+    const face = useGLTF('./face/faceLow5.glb')
     const faceRef = useRef();
     //For head shake
     const [goUp, setUp] = useState(true);
@@ -276,10 +277,8 @@ const FacesCanvas = ({isHovering}) => {
                 />
                 <Face isMobile={isMobile} mouseCoordsRef={mouseCoordsRef} isHovering={isHovering}/>
             </Suspense>
-            <FaceChicken height={0.4} isHovering={isHovering} rotation={3.5} xPos={-3.5}/>
-            <FaceChicken height={-0.8} isHovering={isHovering} rotation={3.5} xPos={-3.5}/>
-            <FaceChicken height={0.4} isHovering={isHovering} rotation={0.5} xPos={3.5}/>
-            <FaceChicken height={-0.8} isHovering={isHovering} rotation={0.5} xPos={3.5}/>
+            <FaceChicken height={0.5} isHovering={isHovering} rotation={3.5} xPos={-3.5}/>
+            <FaceChicken height={0.5} isHovering={isHovering} rotation={0.5} xPos={3.5}/>
             {/* <Preload all /> */}
             <Rig mouseCoordsRef={mouseCoordsRef}/>
         </Canvas>

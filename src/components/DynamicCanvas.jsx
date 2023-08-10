@@ -37,7 +37,7 @@ useEffect(() => {
   }, 3000)
   setTimeout(() => {
     setNoShow(true);
-  }, 5000)
+  }, 4000)
   for(let i = 0; i < sections.length; i++) {
     setTimeout(() => {
       setStatuses([...Array(j + 1).fill(true), ...Array(sections.length - j).fill(false)])
