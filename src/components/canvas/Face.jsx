@@ -277,8 +277,11 @@ const FacesCanvas = ({isHovering}) => {
                 />
                 <Face isMobile={isMobile} mouseCoordsRef={mouseCoordsRef} isHovering={isHovering}/>
             </Suspense>
-            <FaceChicken height={0.5} isHovering={isHovering} rotation={3.5} xPos={-3.5}/>
-            <FaceChicken height={0.5} isHovering={isHovering} rotation={0.5} xPos={3.5}/>
+            <FaceChicken height={-0.6} isHovering={isHovering} rotation={3.5} xPos={-3.5}/>
+            <FaceChicken height={0.4} isHovering={isHovering} rotation={3.5} xPos={-3.5}/>
+            <FaceChicken height={-0.6} isHovering={isHovering} rotation={0.5} xPos={3.5}/>
+            <FaceChicken height={0.4} isHovering={isHovering} rotation={0.5} xPos={3.5}/>
+
             {/* <Preload all /> */}
             <Rig mouseCoordsRef={mouseCoordsRef}/>
         </Canvas>
