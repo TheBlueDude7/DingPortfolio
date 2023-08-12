@@ -78,7 +78,7 @@ const Tech = ({scrollToSection}) => {
   }, [scrollToSection])
 
   return (
-    <div ref={techRef}>
+    <div ref={techRef} style={{scrollMarginTop: "10vh"}}>
       <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}}>
       <ChickensCanvas />
       <div className="absolute">

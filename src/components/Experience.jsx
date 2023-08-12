@@ -207,7 +207,7 @@ const Experience = ({scrollToSection}) => {
     }
   }, [scrollToSection])
   return (
-    <div ref={experienceRef}>
+    <div ref={experienceRef} style={{scrollMarginTop: "10vh"}}>
         <div className="flex flex-row flex-wrap justify-center" style={{height: 700}}>
         <FacesCanvas isHovering={isHovering}/>
         <div style={linksStyle}>

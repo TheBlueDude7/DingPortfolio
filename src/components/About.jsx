@@ -163,7 +163,7 @@ const About = ({scrollToSection}) => {
   }, [scrollToSection])
 
   return (
-    <div ref={aboutRef} style={{height: 1000}}>  
+    <div ref={aboutRef} style={{height: 1000, scrollMarginTop: "10vh"}}>  
       <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}} > 
         <div className="absolute">
           <h1 style={isMobile ? mystyleMobile : mystyle}>About Me</h1>
