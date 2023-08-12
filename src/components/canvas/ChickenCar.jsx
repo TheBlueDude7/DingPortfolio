@@ -88,7 +88,7 @@ const ChickenCar = ({ isMobile }) => {
       )
   }
 
-  const Sun = () => {
+  const Sun = ({isMobile}) => {
     const sunRef = useRef();
     const sun = useLoader(FBXLoader, './car/sunfileLow.fbx');
     return (
@@ -97,8 +97,8 @@ const ChickenCar = ({ isMobile }) => {
           <pointLight intensity={1.2} power={1}/>
           <primitive 
             object={sun}
-            scale={0.01}
-            position={[2.5, 1.4, 1]}
+            scale={isMobile ? 0.005 : 0.01}
+            position={isMobile ? [1, 1.5, 1] : [2.5, 1.4, 1]}
             rotation={[0.5, -0.5, 0]}
           />
           </Float>
@@ -125,7 +125,7 @@ const ChickenCar = ({ isMobile }) => {
       )
   }
 
-  const Clock = () => {
+  const Clock = ({isMobile}) => {
     const clock = useGLTF('./planet/clock_low_poly.glb');
     const clockRef = useRef();
     useFrame(({}, delta) => {
@@ -138,8 +138,8 @@ const ChickenCar = ({ isMobile }) => {
           <pointLight intensity={1.2} power={1}/>
           <primitive 
             object={clock.scene.clone()}
-            scale={2}
-            position={[-2.5, 2, 1]}
+            scale={isMobile ? 1.4 : 2}
+            position={isMobile ? [-1.1, 2.3, 0] : [-2.5, 2, 1]}
             rotation={[0.5, 0, 0]}
           />
           </Float>
@@ -199,12 +199,12 @@ const ChickenCarCanvas = () => {
         dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/15}
         antialias={false}
       >
-        <Sun />
+        <Sun isMobile={isMobile}/>
         <Planet isMobile={isMobile} />
         <Road isMobile={isMobile} />
         <ChickenCar isMobile={isMobile}/>
         <Arrow isMobile={isMobile}/>
-        <Clock />
+        <Clock isMobile={isMobile}/>
       {/* <Preload all /> */}
       </Canvas>
     )

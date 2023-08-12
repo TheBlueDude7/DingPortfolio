@@ -74,7 +74,7 @@ const Contact = ({setLoading, scrollToSection}) => {
     fontSize: "15px",
     fontWeight: "bold",
     textShadow: "4px 4px 5px black",
-    top: "520px",
+    top: "78vh",
     position: "absolute",
     left: "250px"
   }
@@ -108,7 +108,7 @@ const Contact = ({setLoading, scrollToSection}) => {
           <h1 style={isMobile ? mystyleMobile : mystyle}> Contact Me</h1>
           <h1 style={isMobile ? descriptionStyleMobile : descriptionStyle}> You can find me at rogerliuding@gmail.com!</h1>
           <h1 style={isMobile ? descriptionStyleMobile : descriptionStyle}>Don't worry though, I can just contact you too!</h1>
-          <h1 style={isMobile ? ipStyleMobile : ipStyle}>{ipAddress} {location}</h1>
+          <h1 style={isMobile ? ipStyleMobile : ipStyle}>{ipAddress}</h1>
         </div>
       </div>
     </div>
