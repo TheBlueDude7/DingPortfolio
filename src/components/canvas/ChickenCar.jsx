@@ -98,7 +98,7 @@ const ChickenCar = ({ isMobile }) => {
           <primitive 
             object={sun}
             scale={isMobile ? 0.005 : 0.01}
-            position={isMobile ? [1, 1.5, 1] : [2.5, 1.4, 1]}
+            position={isMobile ? [0.8, 1.5, 1] : [2.5, 1.4, 1]}
             rotation={[0.5, -0.5, 0]}
           />
           </Float>
