@@ -31,7 +31,7 @@ const Chicken = ({isMobile, changeChicken}) => {
       <primitive ref={chickenRef}
         object={chicken.scene.clone()}
         scale={isMobile? 1 : 2}
-        position={isMobile ? [0.2, -1, 1] : [1, 0, 1]}
+        position={isMobile ? [0.2, -2, 1] : [1, 0, 1]}
         rotation={[0, 1.2, 0]}
       />
     </mesh>
@@ -93,7 +93,7 @@ const Radio = ({isMobile, stopAudio, setChicken}) => {
       <primitive onMouse
         object={radio.scene}
         scale={isMobile ? 0.2 : 0.4}
-        position={isMobile ? [0, -1, 0] : [0.5, 0, 0]}
+        position={isMobile ? [0, -2, 0] : [0.5, 0, 0]}
         rotation={[0, 0, 0]}
       />
     </mesh>

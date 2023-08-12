@@ -383,7 +383,6 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
         {scaredArray[0]} */}
         {/*{scared ? <Bubbles /> : <Unhappy />}*/}
         <Suspense>
-          <OrbitControls enabled={false}/>
         </Suspense>
         {/* <Preload all /> */}
       </Canvas>

@@ -105,7 +105,7 @@ const Experience = ({scrollToSection}) => {
     color: "white",
     fontSize: "18px",
     fontWeight: "bold",
-   textShadow: "10px 2px 9px black",
+    textShadow: "10px 2px 9px black",
     textAlign: "center"
   };
 
@@ -113,7 +113,7 @@ const Experience = ({scrollToSection}) => {
     color: "white",
     position: "absolute",
     top: "40vh",
-    right: "7vh",
+    right: "1vh",
     color: "white",
     fontSize: "15px",
     fontWeight: "bold",
@@ -134,7 +134,7 @@ const Experience = ({scrollToSection}) => {
     color: "white",
     position: "absolute",
     top: "80vh",
-    left: "3vh",
+    left: "1vh",
     fontSize: "15px",
     fontWeight: "bold",
     textShadow: "10px 2px 10px black",
@@ -146,7 +146,7 @@ const Experience = ({scrollToSection}) => {
     color: "white",
     position: "absolute",
     top: "80vh",
-    right: "3vh",
+    right: "1vh",
     fontSize: "15px",
     fontWeight: "bold",
    textShadow: "10px 2px 9px black",

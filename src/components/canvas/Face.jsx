@@ -213,8 +213,6 @@ useEffect(() => {
                 faceRef.current.position.y = -0.1;
                 changeVal = 0;
                 faceRef.current.lookAt(x, (scrollPosition/951 - 1), 1);
-                console.log("scroll" + scrollPosition);
-                console.log("y" + y);
             }
             
         }   

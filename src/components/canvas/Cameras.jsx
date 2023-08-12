@@ -28,8 +28,27 @@ const CameraChicken = ({isMobile}) => {
   function isClicked() {
     bawkSound.play();
   }
+  const cameraRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
+  };
+
+useEffect(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  return () => {
+      window.removeEventListener('scroll', handleScroll);
+  };
+})
+
+useFrame((t, delta) => {
+      if(isMobile) {
+        cameraRef.current.rotation.y += 0.005 + scrollPosition/9000;
+      }
+  })
   return (
-    <mesh castShadow  onClick={(e) => isClicked()} >
+    <mesh castShadow  onClick={(e) => isClicked()} ref={cameraRef} >
       <ambientLight intensity={0.05} />
       <primitive ref={chickenRef}
         object={chicken.scene.clone()}
@@ -54,9 +73,30 @@ const Cameras = ({ isMobile }) => {
       }
     )
   })
+  const cameraRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
+  };
+
+useEffect(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  return () => {
+      window.removeEventListener('scroll', handleScroll);
+  };
+})
+
+useFrame((t, delta) => {
+      if(isMobile) {
+        cameraRef.current.rotation.y += 0.005 + scrollPosition/9000;
+      }
+  })
+  
+
+
   return (
-    
-    <mesh >
+    <mesh ref={cameraRef}>
       {/* <hemisphereLight intensity={0.15} groundColor="black"/>
       <pointLight intensity={1} /> */}
       {/* <spotLight intensity={3} distance={0.05} position={[0,1,10]}/> */}
@@ -122,21 +162,20 @@ const Cameras = ({ isMobile }) => {
     return (
       <>
       <Canvas
-      frameloop="demand"
       shadows
       camera={{position: [20, 3, 5], fov: 25 }}
       dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
       >
         
         <Suspense fallback={<Loader />}>
-          <OrbitControls enableZoom={false} 
+          {!isMobile && <OrbitControls enableZoom={false} 
             enablePan={false}
             autoRotate={true}
             autoRotateSpeed={1.3}
             maxPolarAngle={Math.PI / 2}
             minPolarAngle={Math.PI / 2}
             enableRotate={!isMobile}
-          />
+          />}
           <CameraChicken isMobile={isMobile}/>
           <Cameras isMobile={isMobile}/>
         </Suspense >

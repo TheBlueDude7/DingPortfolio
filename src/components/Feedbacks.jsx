@@ -107,7 +107,7 @@ const Feedbacks = ({scrollToSection}) => {
   const otherPeopleTextMobile = {
     color: "white",
     position: "absolute",
-    fontSize: "14px",
+    fontSize: "18px",
     fontWeight: "bold",
     textShadow: "4px 4px 5px black",
     textAlign: "center"
