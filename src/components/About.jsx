@@ -78,7 +78,7 @@ const About = ({scrollToSection}) => {
   //Second Text
   const middleStyleMobile = {
     position: "relative",
-    top: "8vh",
+    top: "2vh",
     left: "0vh",
     fontSize: "15px",
     fontWeight: "bold",
@@ -90,7 +90,7 @@ const About = ({scrollToSection}) => {
   //Third Text
   const secondStyleMobile = {
     position: "relative",
-    top: "12vh",
+    top: "4vh",
     left: "0vh",
     fontSize: "15px",
     fontWeight: "bold",
@@ -102,7 +102,7 @@ const About = ({scrollToSection}) => {
   //Routh Text
   const thirdStyleMobile = {
     position: "relative",
-    top: "80vh",
+    top: "6vh",
     left: "0vh",
     fontSize: "15px",
     fontWeight: "bold",

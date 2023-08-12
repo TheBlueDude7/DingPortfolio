@@ -39,7 +39,7 @@ const ChickenFeed = ({ xDirection, xRotation, yRotation, positionx, positiony, p
     <>
     <ambientLight intensity={0.1}/>
     <mesh position={[positionx, positiony, positionz]} ref={sphereRef} onClick={(e) => isClicked()}>
-      <sphereGeometry args={isMobile ? [0.1, 22, 22] : [0.2, 33, 33]} />
+      <sphereGeometry args={isMobile ? [0.22, 22, 22] : [0.2, 33, 33]} />
       <meshStandardMaterial map={texturesMap}/>
     </mesh>
     </>
@@ -83,7 +83,7 @@ const Chickens = ({ isMobile, keyVal}) => {
       <ChickenFeed isMobile={isMobile} positionx={xPos} positiony={yPos} positionz={zPos} xDirection={xDirection} xRotation={xRotation} yRotation={yRotation} texture={picturesMap[keyVal]}/>
       <primitive ref={chickenRef}
         object={chicken.scene.clone()}
-        scale={isMobile ? Math.random() * 3 + 1 : Math.random() * 5 + 2}
+        scale={isMobile ? Math.random() * 1.25 + 1 : Math.random() * 5 + 2}
         position={[xPos, yPos, zPos]}
         rotation={[Math.PI/Math.random() * 2, Math.random() * 2, Math.random() * 2]}
       />
@@ -118,7 +118,7 @@ const chickensCanvas = () => {
     antialias={false}
     >
       {/* Creates the chickens on the scene, fills an array and assigns them unique keys */}
-      {new Array(8).fill().map((item, i) => <Chickens key={i} keyVal={i} isMobile={isMobile}/> )}
+      {new Array(11).fill().map((item, i) => <Chickens key={i} keyVal={i} isMobile={isMobile}/> )}
       <Suspense>
         {!isMobile && <OrbitControls enableZoom={false} enabled={false} />}
       </Suspense>
