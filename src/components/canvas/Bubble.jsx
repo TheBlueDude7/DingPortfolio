@@ -126,7 +126,7 @@ deathSound.volume = 0.3;
       <ambientLight intensity={0.3}/>
       <primitive 
         object={bubble.scene.clone()}
-        scale={isMobile ? 0.3 : 0.4}
+        scale={isMobile ? 0.2 : 0.4}
         position={[positionX, positionY, 0]}
         rotation={[0, 0, 0]}
       />
@@ -278,7 +278,7 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
         <ambientLight intensity={0.05}/>
         <primitive 
           object={unhappy.scene.clone()}
-          scale={isMobile ? 0.2 : 0.23}
+          scale={isMobile ? 0.1 : 0.23}
           position={[positionX, positionY, 0]}
           rotation={[0, 0, 0]}
         />
@@ -375,8 +375,8 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
       camera={{position: [0, 0, 10], fov: 60 }}
       dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
       >
-        {Array(5).fill().map((item, i) => <Bubbles key={i} positionY={isMobile ? 1 : 0.6} positionX={isMobile ? i * 2 - 4 : i * 3 - 5.7} setFear={setFear} isScared={scared} setKey={setKey} keyVal={i} isMobile={isMobile}/>)} 
-        {Array(5).fill().map((item, i) => <Unhappy key={i} positionY={isMobile ? 1 : 0.6} positionX={isMobile ? i * 2 - 4: i * 3 - 5.7} setArray={setFear} isScared={scared} isRunning={running} hideKey={hideKey} keyVal={i} isMobile={isMobile}/>)}
+        {Array(5).fill().map((item, i) => <Bubbles key={i} positionY={isMobile ? 1 : 0.6} positionX={isMobile ? i - 2: i * 3 - 5.7} setFear={setFear} isScared={scared} setKey={setKey} keyVal={i} isMobile={isMobile}/>)} 
+        {Array(5).fill().map((item, i) => <Unhappy key={i} positionY={isMobile ? 1 : 0.6} positionX={isMobile ? i - 2: i * 3 - 5.7} setArray={setFear} isScared={scared} isRunning={running} hideKey={hideKey} keyVal={i} isMobile={isMobile}/>)}
         {Array(1).fill().map((item, i) =>  <Chickens xPosition={12 + (Math.random() * 10)} yPosition={i * 1.4 - 2} copsAreHere={copTime} xRotation={Math.random() * 6 - 3}/>)}  
        
         {/* {scaredArray[1]}
