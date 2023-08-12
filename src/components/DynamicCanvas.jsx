@@ -56,7 +56,7 @@ useEffect(() => {
   var j = 0;
   setTimeout(() => {
     setDisplay(true);
-  }, 3000)
+  }, 4000)
   setTimeout(() => {
     setNoShow(true);
   }, 4000)

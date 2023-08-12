@@ -59,6 +59,19 @@ const FaceChicken = ({isMobile, height, isHovering, rotation, xPos}) => {
 const Face = ({ isMobile, mouseCoordsRef, isHovering }) => {
     //Setting up the audio for the face
     const [audioPlaying, setAudioPlaying] = useState(false);
+    //For Scroll
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+    };
+
+useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+}, []);
 
     let mhmNoise = new Audio('/audio/mhm.mp3');
     let clickIt = new Audio('/audio/ComeOnClickit.mp3');
@@ -188,13 +201,23 @@ const Face = ({ isMobile, mouseCoordsRef, isHovering }) => {
             } 
             
         } else {
-            scaleVal = 0;
-            faceRef.current.position.x = 0;
-            faceRef.current.position.y = -0.1;
-            changeVal = 0;
-            faceRef.current.lookAt(x, y, 1);
-        }
-       
+            if(!isMobile) {
+                scaleVal = 0;
+                faceRef.current.position.x = 0;
+                faceRef.current.position.y = -0.1;
+                changeVal = 0;
+                faceRef.current.lookAt(x, y, 1);
+            } else{
+                scaleVal = 0;
+                faceRef.current.position.x = 0;
+                faceRef.current.position.y = -0.1;
+                changeVal = 0;
+                faceRef.current.lookAt(x, (scrollPosition/951 - 1), 1);
+                console.log("scroll" + scrollPosition);
+                console.log("y" + y);
+            }
+            
+        }   
         
     })
 
@@ -269,12 +292,6 @@ const FacesCanvas = ({isHovering}) => {
         >
             
             <Suspense>
-                <OrbitControls
-                    enabled={false}
-                    enablePan={false}
-                    maxPolarAngle={Math.PI / 2}
-                    minPolarAngle={Math.PI / 2}
-                />
                 <Face isMobile={isMobile} mouseCoordsRef={mouseCoordsRef} isHovering={isHovering}/>
             </Suspense>
             <FaceChicken height={-0.6} isHovering={isHovering} rotation={3.5} xPos={-3.5}/>

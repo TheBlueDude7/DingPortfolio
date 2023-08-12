@@ -120,7 +120,7 @@ const chickensCanvas = () => {
       {/* Creates the chickens on the scene, fills an array and assigns them unique keys */}
       {new Array(8).fill().map((item, i) => <Chickens key={i} keyVal={i} isMobile={isMobile}/> )}
       <Suspense>
-        <OrbitControls enableZoom={false} enabled={false} />
+        {isMobile && <OrbitControls enableZoom={false} enabled={false} />}
       </Suspense>
       <Preload all /> 
     </Canvas>
