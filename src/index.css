@@ -623,3 +623,10 @@ body {
   50% {top: 20px}
   100% {top: 0px}
 }
+
+.nextSectionButton {
+  top: "90vh";
+  left: "50vw";
+  position: "fixed";
+  z-index: 998;
+}

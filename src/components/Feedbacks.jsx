@@ -1,9 +1,9 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState, useEffect, useRef} from 'react'
 import { BubblesCanvas } from "./canvas"
 import { chickenSirenCanvas } from "./canvas"
 import { styles } from '../styles';
 
-const Feedbacks = () => {
+const Feedbacks = ({scrollToSection}) => {
   const [channelStyleChange, setChannelStyle] = useState("channelStyle");
   const [midStyleChange, setMidStyle] = useState("middleStyle");
   const [rightStyleChange, setRightStyle] = useState("rightStyle");
@@ -123,9 +123,19 @@ const Feedbacks = () => {
     textShadow: "4px 4px 5px black",
     textAlign: "center"
   }
+
+  const feedbackRef = useRef(null);
+
+  useEffect(() => { 
+    if(scrollToSection == 4) {
+      feedbackRef.current.scrollIntoView();
+    }
+  }, [scrollToSection])
+
   return (
+
    
-    <section className="relative w-full h-screen mx-auto" style={{height: 1000}} >
+    <section className="relative w-full h-screen mx-auto" style={{height: 1000}} ref={feedbackRef} >
       <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}}>
       <BubblesCanvas setHidden={hideText}/>
       <div className="absolute">

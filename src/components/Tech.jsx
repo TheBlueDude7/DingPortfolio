@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { styles } from "../styles";
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { ChickensCanvas } from "./canvas"
 import { EarthCanvas } from "./canvas"
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
@@ -8,7 +8,7 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
 
 
-const Tech = () => {
+const Tech = ({scrollToSection}) => {
   
   const [isMobile, setMobile] = useState(false);
 
@@ -69,9 +69,16 @@ const Tech = () => {
     textAlign: "center"
   };
 
+  const techRef = useRef(null);
+
+  useEffect(() => { 
+    if(scrollToSection == 3) {
+      techRef.current.scrollIntoView();
+    }
+  }, [scrollToSection])
 
   return (
-    <div>
+    <div ref={techRef}>
       <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}}>
       <ChickensCanvas />
       <div className="absolute">

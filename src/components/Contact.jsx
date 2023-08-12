@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef} from 'react'
 import { ChickenCarCanvas } from "./canvas"
  
-const Contact = ({setLoading}) => {
+const Contact = ({setLoading, scrollToSection}) => {
   const [isMobile, setMobile] = useState(false);
   
   useEffect(() => {
@@ -92,8 +92,16 @@ const Contact = ({setLoading}) => {
       .catch(error => console.log(error))
   }, []);
 
+  const contactRef = useRef(null);
+
+  useEffect(() => { 
+    if(scrollToSection == 5) {
+      contactRef.current.scrollIntoView();
+    }
+  }, [scrollToSection])
+
   return (
-    <div>
+    <div ref={contactRef}>
         <div className="flex flex-row flex-wrap justify-center" style={{height:"1000px"}}>
         <ChickenCarCanvas setLoading={setLoading}/>
         <div className="absolute">

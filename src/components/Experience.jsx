@@ -1,14 +1,14 @@
 // import Tilt from 'react-parallax-tilt'
 import { motion } from 'framer-motion';
 import { styles } from "../styles";
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef} from "react"
 import { FacesCanvas } from "./canvas"
 import { technologies } from "../constants";
 import { Canvas, useFrame } from '@react-three/fiber';
 import { withRouter } from 'next/router';
 
 
-const Experience = () => {
+const Experience = ({scrollToSection}) => {
   const [isMobile, setMobile] = useState(false);
 
   useEffect(() => {
@@ -126,8 +126,8 @@ const Experience = () => {
     color: "white",
     fontSize: "40px",
     fontWeight: "bold",
-   textShadow: "4px 4px 5px black",
-    textAlign: "center"
+    textShadow: "4px 4px 5px black",
+    textAlign: "center",
   };
 
   const channelStyleMobile = {
@@ -137,7 +137,7 @@ const Experience = () => {
     left: "3vh",
     fontSize: "15px",
     fontWeight: "bold",
-   textShadow: "10px 2px 10px black",
+    textShadow: "10px 2px 10px black",
     textAlign: "center"
   }
 
@@ -199,9 +199,15 @@ const Experience = () => {
   const [isHovering, setHovering] = useState(false);
   const [explanationText, setExplanation] = useState("Hello");
 
+  const experienceRef = useRef(null);
 
+  useEffect(() => { 
+    if(scrollToSection == 1) {
+      experienceRef.current.scrollIntoView({block: "nearest"});
+    }
+  }, [scrollToSection])
   return (
-    <div>
+    <div ref={experienceRef}>
         <div className="flex flex-row flex-wrap justify-center" style={{height: 700}}>
         <FacesCanvas isHovering={isHovering}/>
         <div style={linksStyle}>

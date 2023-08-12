@@ -9,7 +9,7 @@ import { useInView } from 'react-intersection-observer';
 
 
 
-const About = () => {
+const About = ({scrollToSection}) => {
   const mystyle = {
     color: "white",
     fontSize: "60px",
@@ -137,31 +137,10 @@ const About = () => {
     }
   }, [])
 
-  const [ viewRef, inView, entry] = useInView({
-    threshold: 0.1
-  });
-
-  const [ middleViewRef, inMiddleView] = useInView({
-    threshold: 0.2
-  });
-
   const [volumeVal, setVolume] = useState(0.1);
   const [workingRadio, setWorking] = useState(true);
   const [beatText, setBeatText] = useState("We got some nice beats for ya! (If there's nothing playing, gently touch the boombox).");
   const [topText, setTopText] = useState("I'm currently studying Computer Science and Film!");
-  useEffect(() => {
-    if(workingRadio) {
-      if(inView) {
-        setVolume(0.05);
-        
-      } else {
-        setVolume(0.0125);
-      }
-    } else {
-      setVolume(0);
-    }
-     
-  }, [inView])
 
   let audioRef = useRef();
 
@@ -175,8 +154,16 @@ const About = () => {
 
   boomboxStop.volume = 0.5;
 
+  const aboutRef = useRef(null);
+
+  useEffect(() => { 
+    if(scrollToSection == 2) {
+      aboutRef.current.scrollIntoView();
+    }
+  }, [scrollToSection])
+
   return (
-    <div ref={viewRef} style={{height: 1000}}>  
+    <div ref={aboutRef} style={{height: 1000}}>  
       <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}} > 
         <div className="absolute">
           <h1 style={isMobile ? mystyleMobile : mystyle}>About Me</h1>

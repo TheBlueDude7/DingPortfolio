@@ -1,9 +1,17 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
 import { CamerasCanvas } from './canvas';
-const Hero = ({setLoading, noShow}) => {
+const Hero = ({setLoading, noShow, scrollToSection}) => {
   const [isMobile, setMobile] = useState(false);
+
+  const heroRef = useRef(null);
+
+  useEffect(() => { 
+    if(scrollToSection == 0) {
+      heroRef.current.scrollIntoView();
+    }
+  }, [scrollToSection])
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 500px)');
@@ -20,7 +28,7 @@ const Hero = ({setLoading, noShow}) => {
   }, [])
   // className="relative w-full h-screen mx-auto" 
   return (
-    <section className="relative w-full h-screen mx-auto" >
+    <section className="relative w-full h-screen mx-auto" ref={heroRef}>
       <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7x1 mx-auto flex flex-row items-start gap-5`}>
         <div className="flex flex-col justify-center items-center mt-5">
           <div className="w-5 h-5 rounded-full bg-[#915eff]"/>
