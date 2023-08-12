@@ -126,7 +126,7 @@ deathSound.volume = 0.3;
       <ambientLight intensity={0.3}/>
       <primitive 
         object={bubble.scene.clone()}
-        scale={isMobile ? 0.2 : 0.4}
+        scale={isMobile ? 0.16 : 0.4}
         position={[positionX, positionY, 0]}
         rotation={[0, 0, 0]}
       />
@@ -278,7 +278,7 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
         <ambientLight intensity={0.05}/>
         <primitive 
           object={unhappy.scene.clone()}
-          scale={isMobile ? 0.1 : 0.23}
+          scale={isMobile ? 0.08 : 0.23}
           position={[positionX, positionY, 0]}
           rotation={[0, 0, 0]}
         />
