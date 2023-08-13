@@ -70,6 +70,7 @@ const About = ({scrollToSection}) => {
   const mystyleMobile = {
     color: "white",
     fontSize: "40px",
+    padding: "3px",
     fontWeight: "bold",
     textShadow: "4px 4px 5px black",
     textAlign: "center"
@@ -82,6 +83,7 @@ const About = ({scrollToSection}) => {
     left: "0vh",
     fontSize: "15px",
     fontWeight: "bold",
+    padding: "4px",
     textShadow: "4px 4px 5px black",
     textAlign: "center",
     color: "white"
@@ -92,6 +94,7 @@ const About = ({scrollToSection}) => {
     position: "relative",
     top: "4vh",
     left: "0vh",
+    padding: "4px",
     fontSize: "15px",
     fontWeight: "bold",
     textShadow: "4px 4px 5px black",
@@ -104,6 +107,7 @@ const About = ({scrollToSection}) => {
     position: "relative",
     top: "6vh",
     left: "0vh",
+    padding: "4px",
     fontSize: "15px",
     fontWeight: "bold",
     textShadow: "4px 4px 5px black",
