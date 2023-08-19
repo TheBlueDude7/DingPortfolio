@@ -279,6 +279,7 @@ const HistoryCanvas = ({stopAudio}) => {
         shadows   
         dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
         antialias={false}
+        frameloop={inView ? "always" : "demand"}
       >
         <Radio stopAudio={stopAudio} setChicken={setChicken} isMobile={isMobile}/>
         <ChickenFirst isMobile={isMobile}/>

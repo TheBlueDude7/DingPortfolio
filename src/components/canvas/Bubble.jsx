@@ -65,7 +65,7 @@ const Bubbles = ({ isMobile, positionX, positionY, setFear, isScared, setKey, ke
     if(isHovering) {
       bubbleRef.current.rotation.x -= delta;
     }
-    if(bubbleRef.current.position.y < -1  || bubbleRef.current.position.y > 1) {
+    if(bubbleRef.current.position.y < -1  || bubbleRef.current.position.y > 2) {
       bubbleRef.current.position.y = 0;
     }
     if(headBobYSpeed < 0) {
@@ -170,7 +170,7 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
   //Decide to rotate which way
 
    useFrame((state, delta) => {
-    if(bubbleRef.current.position.y < -1 || bubbleRef.current.position.y > 1) {
+    if(bubbleRef.current.position.y < -1 || bubbleRef.current.position.y > 2) {
       bubbleRef.current.position.y = 0;
     }
     if(hideKey == keyVal) {
@@ -374,6 +374,7 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
       <Canvas
       camera={{position: [0, 0, 10], fov: 60 }}
       dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
+      frameloop={inView ? "always" : "demand"}
       >
         {Array(5).fill().map((item, i) => <Bubbles key={i} positionY={isMobile ? 1 : 0.6} positionX={isMobile ? i/1.2 - 1.6: i * 3 - 5.7} setFear={setFear} isScared={scared} setKey={setKey} keyVal={i} isMobile={isMobile}/>)} 
         {Array(5).fill().map((item, i) => <Unhappy key={i} positionY={isMobile ? 1 : 0.6} positionX={isMobile ? i/1.2 - 1.6: i * 3 - 5.7} setArray={setFear} isScared={scared} isRunning={running} hideKey={hideKey} keyVal={i} isMobile={isMobile}/>)}

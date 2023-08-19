@@ -72,7 +72,7 @@ const About = ({scrollToSection}) => {
     fontSize: "40px",
     padding: "3px",
     fontWeight: "bold",
-    textShadow: "4px 4px 5px black",
+    textShadow: "2px 2px 5px black",
     textAlign: "center"
   };
 
@@ -84,7 +84,7 @@ const About = ({scrollToSection}) => {
     fontSize: "15px",
     fontWeight: "bold",
     padding: "4px",
-    textShadow: "4px 4px 5px black",
+    textShadow: "2px 2px 10px black",
     textAlign: "center",
     color: "white"
   }
@@ -97,7 +97,7 @@ const About = ({scrollToSection}) => {
     padding: "4px",
     fontSize: "15px",
     fontWeight: "bold",
-    textShadow: "4px 4px 5px black",
+    textShadow: "2px 2px 10px black",
     textAlign: "center",
     color: "white"
   }
@@ -110,7 +110,7 @@ const About = ({scrollToSection}) => {
     padding: "4px",
     fontSize: "15px",
     fontWeight: "bold",
-    textShadow: "4px 4px 5px black",
+    textShadow: "2px 2px 10px black",
     textAlign: "center",
     color: "white"
   }

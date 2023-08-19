@@ -198,6 +198,7 @@ const ChickenCarCanvas = () => {
         shadows   
         dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/15}
         antialias={false}
+        frameloop={inView ? "always" : "demand"}
       >
         <Sun isMobile={isMobile}/>
         <Planet isMobile={isMobile} />
