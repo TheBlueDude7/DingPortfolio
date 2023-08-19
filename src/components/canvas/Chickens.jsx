@@ -116,7 +116,7 @@ const chickensCanvas = () => {
     <Canvas   
     dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
     antialias={false}
-    frameloop={inView ? "always" : "demand"}
+    frameloop={inView ? "always" : "never"}
     >
       {/* Creates the chickens on the scene, fills an array and assigns them unique keys */}
       {new Array(11).fill().map((item, i) => <Chickens key={i} keyVal={i} isMobile={isMobile}/> )}

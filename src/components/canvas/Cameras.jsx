@@ -165,7 +165,7 @@ useFrame((t, delta) => {
       shadows
       camera={{position: [20, 3, 5], fov: 25 }}
       dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
-      frameloop={inView ? "always" : "demand"}
+      frameloop={inView ? "always" : "never"}
       >
         
         <Suspense fallback={<Loader />}>
