@@ -65,7 +65,7 @@ const Bubbles = ({ isMobile, positionX, positionY, setFear, isScared, setKey, ke
     if(isHovering) {
       bubbleRef.current.rotation.x -= delta;
     }
-    if(bubbleRef.current.position.y < -1  || bubbleRef.current.position.y > 2) {
+    if(bubbleRef.current.position.y < -2  || bubbleRef.current.position.y > 2.5) {
       bubbleRef.current.position.y = 0;
     }
     if(headBobYSpeed < 0) {
@@ -170,7 +170,7 @@ const Unhappy = ({ isMobile, positionX, positionY, isScared, isRunning, hideKey,
   //Decide to rotate which way
 
    useFrame((state, delta) => {
-    if(bubbleRef.current.position.y < -1 || bubbleRef.current.position.y > 2) {
+    if(bubbleRef.current.position.y < -2 || bubbleRef.current.position.y > 2.5) {
       bubbleRef.current.position.y = 0;
     }
     if(hideKey == keyVal) {
