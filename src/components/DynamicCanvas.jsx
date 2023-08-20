@@ -89,7 +89,7 @@ useEffect(() => {
       <div >
         <Navbar />
         {sections.map((Section, i) => 
-        <div style={{visible: noShow ? "visible" : "hidden", height: loadingStatuses[3] ? "" : "0px"}} className={backgrounds[i] + " bg-cover bg-no-repeat bg-center"} >  
+        <div style={{display: displayItems ? "block" : "none", visible: displayItems ? "visible" : "hidden", height: loadingStatuses[3] ? "" : "0px"}} className={backgrounds[i] + " bg-cover bg-no-repeat bg-center"} >  
           <RenderInView >
            {loadingStatuses[i] && <Section scrollToSection={scrollToSection} setLoading={setLoading} noShow={noShow} key={i}/>}
           </RenderInView>
