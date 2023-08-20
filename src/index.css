@@ -336,10 +336,36 @@ body {
 }
 
 .textLoading {
-  top: 70vh;
+  align-items: center;
+  justify-content: center;
   text-shadow: 10px;
   color: black;
   font-size: 30px;
+  display: flex;
+}
+
+.first {
+  animation: bounce 1s ease infinite;
+}
+
+.second {
+  animation: bounce 1s ease infinite .1s;
+}
+
+.third {
+  animation: bounce 1s ease infinite .2s;
+}
+
+.fourth {
+  animation: bounce 1s ease infinite .3s;
+}
+
+.fifth {
+  animation: bounce 1s ease infinite .4s;
+}
+
+.sixth {
+  animation: bounce 1s ease infinite .5s;
 }
 
 .hiddenChicken {
@@ -357,6 +383,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  top: 50%;
+  left: 50%;
   width: 200px;
   height: 100px;
   transform: translate(-50%, -50%);
@@ -631,4 +659,16 @@ body {
   left: "50vw";
   position: "fixed";
   z-index: 998;
+}
+
+/* Text bounce */
+
+@keyframes bounce {
+  0%   { transform: scale(1,1) translateY(0); }
+  10%  { transform: scale(1.1,.9) translateY(0); }
+  30%  { transform: scale(.9,1.1)   translateY(-55px);}
+  50%  { transform: scale(1.05,.95) translateY(0); }
+  58%  { transform: scale(1,1) translateY(-7px); }
+  65%  { transform: scale(1,1) translateY(0);}
+  100% { transform: scale(1,1) translateY(0);}
 }
