@@ -282,7 +282,7 @@ body {
 .rightStyle {
   color: white;
   position: relative;
-  top: 58vh;
+  top: 59vh;
   right: -25vw;
   font-size: 20px;
   font-weight: bold;
@@ -671,4 +671,113 @@ body {
   58%  { transform: scale(1,1) translateY(-7px); }
   65%  { transform: scale(1,1) translateY(0);}
   100% { transform: scale(1,1) translateY(0);}
+}
+
+@font-face {
+  font-family: 'siteFont'; /*a name to be used later*/
+  src: 'public/static/Montserrat-Bold.woff' format('woff');
+}
+.textClass {
+  font-family: siteFont;
+}
+
+.headTwo {
+  position: absolute;
+  width: 150px;
+  height: 150px;  
+  display: flex;
+  bottom: 0%;
+  background: #fffc7a;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  animation: tiltUp 4s;
+  
+}
+
+.chicken2 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 95%;
+  left: 50%;
+  width: 200px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+}
+
+.eyeleft {
+  position: absolute;
+  background: black;
+  border-radius: 1000px;
+  width: 20px;
+  top: 0%;
+  left: 20%;
+  height: 20px;
+  z-index: 10;
+  animation: tiltUpEye 4s;
+}
+
+.eyeright {
+  position: absolute;
+  background: black;
+  border-radius: 1000px;
+  width: 20px;
+  top: 0%;
+  right: 20%;
+  height: 20px;
+  z-index: 10;
+  animation: tiltUp 4s;
+}
+
+.beakTwo {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 30px solid transparent;
+  border-right-color: darkorange;
+  transform: rotate(-90deg);
+  animation: tiltUpBeak 4s;
+}
+
+@keyframes tiltUp { 
+  0% {rotate: -90deg}
+  10% {rotate: -90deg}
+  50% {rotate: 0deg}
+  100% {rotate: 0deg}
+
+  0% {transform: translateX(-500px)}
+  10% {transform: translateX(-500px)}
+  50% {transform: translateX(0px)}
+  100% {transform: translateX(0px)}
+}
+
+
+@keyframes tiltUpBeak { 
+  0% {rotate: -90deg}
+  10% {rotate: -90deg}
+  50% {rotate: -90deg}
+  100% {rotate: -90deg}
+
+  0% {transform: translateX(-500px)}
+  10% {transform: translateX(-500px)}
+  50% {transform: translateX(0px)}
+  100% {transform: translateX(0px)}
+}
+
+
+@keyframes tiltUpEye { 
+  0% {rotate: -90deg}
+  10% {rotate: -90deg}
+  50% {rotate: 0deg}
+
+  0% {transform: translateX(-500px)}
+  10% {transform: translateX(-500px)}
+  50% {transform: translateX(0px)}
+
+  50% {height: 20px}
+  58% {height: 1%}
+  64% {height: 20px}
+
 }

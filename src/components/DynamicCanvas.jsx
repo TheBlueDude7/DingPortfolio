@@ -74,7 +74,8 @@ useEffect(() => {
        {/* <div>
         <button className={"nextSectionButton"} style={{display: mobile ? "block" : "none",  textShadow: "2px 2px 5px black", borderRadius: "10px", padding: "5px", height: "10vh", backgroundColor: "#a1b4d4", top: "0vh", left: "0vw", position: "fixed", zIndex: 998}} onClick={() => handleClick()}>Next Section</button>
       </div> */}
-       <div className={displayItems ? "hiddenChicken" : "loading"}  style={{overflow: "hidden", height: "100vh", position: "fixed", top: "0", left: "0", width: "100vw", backgroundColor: "white", zIndex: 999, overflowY: "hidden" }}>
+      {/*displayItems ? "hiddenChicken" : */}
+       <div className={"loading"}  style={{overflow: "hidden", height: "100vh", position: "fixed", top: "0", left: "0", width: "100vw", backgroundColor: "white", zIndex: 999, overflowY: "hidden" }}>
         <h1 className="textLoading" style={{top: "50px"}}>
           <div className="first">Gener</div>
           <div className="second"> ating</div>
@@ -92,9 +93,16 @@ useEffect(() => {
           <div class="leg one"></div>
           <div class="leg two"></div>
         </div>
+
+        <div className="chicken2">
+          <div className="headTwo"></div>
+          <div className="eyeleft"></div>
+          <div className="eyeright"></div>
+          <div className="beakTwo"></div>
+        </div>
       </div> 
-      <div >
-        <Navbar />
+      <div>
+        <Navbar className={"textClass"}/>
         <div className={"bg-hero-pattern bg-cover bg-no-repeat bg-center"}>
           <RenderInView>    
             <Hero scrollToSection={scrollToSection} setLoading={setLoading} noShow={noShow}/>
@@ -102,7 +110,7 @@ useEffect(() => {
         </div>
         
         {sections.map((Section, i) => 
-        <div style={{display: displayItems ? "block" : "none", visible: displayItems ? "visible" : "hidden", height: loadingStatuses[3] ? "" : "0px"}} className={backgrounds[i] + " bg-cover bg-no-repeat bg-center"} >  
+        <div style={{display: displayItems ? "block" : "none", visible: displayItems ? "visible" : "hidden", height: loadingStatuses[3] ? "" : "0px"}} className={backgrounds[i] + " bg-cover bg-no-repeat bg-center textClass"} >  
           <RenderInView >
            {loadingStatuses[i] && <Section scrollToSection={scrollToSection} setLoading={setLoading} noShow={noShow} key={i}/>}
           </RenderInView>
