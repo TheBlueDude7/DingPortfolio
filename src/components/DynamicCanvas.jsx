@@ -75,7 +75,7 @@ useEffect(() => {
         <button className={"nextSectionButton"} style={{display: mobile ? "block" : "none",  textShadow: "2px 2px 5px black", borderRadius: "10px", padding: "5px", height: "10vh", backgroundColor: "#a1b4d4", top: "0vh", left: "0vw", position: "fixed", zIndex: 998}} onClick={() => handleClick()}>Next Section</button>
       </div> */}
       {/*displayItems ? "hiddenChicken" : */}
-       <div className={"loading"}  style={{overflow: "hidden", height: "100vh", position: "fixed", top: "0", left: "0", width: "100vw", backgroundColor: "white", zIndex: 999, overflowY: "hidden" }}>
+       <div className={displayItems ? "hiddenChicken" : "loading"}  style={{overflow: "hidden", height: "100vh", position: "fixed", top: "0", left: "0", width: "100vw", backgroundColor: "white", zIndex: 999, overflowY: "hidden" }}>
         <h1 className="textLoading" style={{top: "50px"}}>
           <div className="first">Gener</div>
           <div className="second"> ating</div>
