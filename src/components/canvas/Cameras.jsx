@@ -34,11 +34,22 @@ const CameraChicken = ({isMobile}) => {
       const position = window.pageYOffset;
       setScrollPosition(position);
   };
+  const [size, setSize] = useState(visualViewport.width/450 + 0.1);
+
+  const handleResize = () => {
+    setSize(visualViewport.width/450 + 0.1);
+  }
 
 useEffect(() => {
   window.addEventListener('scroll', handleScroll, { passive: true });
   return () => {
       window.removeEventListener('scroll', handleScroll);
+  };
+})
+useEffect(() => {
+  window.addEventListener('resize', handleResize);
+  return () => {
+      window.removeEventListener('resize', handleResize);
   };
 })
 
@@ -52,7 +63,7 @@ useFrame((t, delta) => {
       <ambientLight intensity={0.05} />
       <primitive ref={chickenRef}
         object={chicken.scene.clone()}
-        scale={isMobile ? 2.4 : visualViewport.width/450 + 0.1}
+        scale={isMobile ? 2.4 : size}
         position={isMobile ? [0, -0.5, -2] : [0, visualViewport.height * - 1/850, -1.5]}
         rotation={[0, 2, 0]}
       />
@@ -65,6 +76,7 @@ useFrame((t, delta) => {
 
 
 const Cameras = ({ isMobile }) => {
+  const [size, setSize] = useState(1);
   const camera = useGLTF('./camera/cameraLow.glb')
   useEffect(() => {
     camera.scene.traverse(
@@ -80,12 +92,23 @@ const Cameras = ({ isMobile }) => {
       setScrollPosition(position);
   };
 
+  const handleResize = () => {
+    setSize(visualViewport.width/5000 + 0.5);
+  }
 useEffect(() => {
   window.addEventListener('scroll', handleScroll, { passive: true });
   return () => {
       window.removeEventListener('scroll', handleScroll);
   };
 })
+
+useEffect(() => {
+  window.addEventListener('resize', handleResize);
+  return () => {
+      window.removeEventListener('resize', handleResize);
+  };
+})
+
 
 useFrame((t, delta) => {
       if(isMobile) {
@@ -104,7 +127,7 @@ useFrame((t, delta) => {
       <ambientLight intensity={1}/>
       <primitive 
         object={camera.scene}
-        scale={isMobile ? 0.7 : 1 + visualViewport.width/8000}
+        scale={isMobile ? 0.7 : size}
         position={isMobile ? [0, -1, -2.2] : [0, -1.5, -1.5]}
       />
     </mesh>

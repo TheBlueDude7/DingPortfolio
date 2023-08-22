@@ -166,6 +166,7 @@ useEffect(() => {
                 changeVal = 0;
                 faceRef.current.lookAt(x, (scrollPosition/951 - 1), 1);
             }
+
             
         }     
     })
