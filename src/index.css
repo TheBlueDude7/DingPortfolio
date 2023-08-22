@@ -231,7 +231,7 @@
   color: white;
   position: relative;
   top: 65vh;
-  left: -60vh;
+  left: -25vw;
   font-size: 20px;
   font-weight: bold;
   text-shadow: 4px 4px 5px black;
@@ -283,7 +283,7 @@ body {
   color: white;
   position: relative;
   top: 58vh;
-  right: -60vh;
+  right: -25vw;
   font-size: 20px;
   font-weight: bold;
   text-shadow: 4px 4px 5px black;

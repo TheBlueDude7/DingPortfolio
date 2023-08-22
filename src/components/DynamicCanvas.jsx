@@ -7,8 +7,8 @@ import { createContext, useContext, useState, useEffect } from 'react';
 export const LoadingContext = createContext(false); 
 
 export default function DynamicCanvas() {
-  const sections = [Hero, Experience, About, Tech, Feedbacks, Contact];
-  const backgrounds = ["bg-hero-pattern", "bg-head-pattern", "bg-great-pattern", "bg-chicken-pattern", "bg-about-pattern", "bg-ip-pattern"];
+  const sections = [Experience, About, Tech, Feedbacks, Contact];
+  const backgrounds = ["bg-head-pattern", "bg-great-pattern", "bg-chicken-pattern", "bg-about-pattern", "bg-ip-pattern"];
   const [finishedLoading, setLoading] = useState(false);
   const [displayItems, setDisplay] = useState(false);
   const [loadingStatuses, setStatuses] = useState([true, ...Array(sections.length - 1).fill(false)]);
@@ -95,6 +95,12 @@ useEffect(() => {
       </div> 
       <div >
         <Navbar />
+        <div className={"bg-hero-pattern bg-cover bg-no-repeat bg-center"}>
+          <RenderInView>    
+            <Hero scrollToSection={scrollToSection} setLoading={setLoading} noShow={noShow}/>
+          </RenderInView> 
+        </div>
+        
         {sections.map((Section, i) => 
         <div style={{display: displayItems ? "block" : "none", visible: displayItems ? "visible" : "hidden", height: loadingStatuses[3] ? "" : "0px"}} className={backgrounds[i] + " bg-cover bg-no-repeat bg-center"} >  
           <RenderInView >

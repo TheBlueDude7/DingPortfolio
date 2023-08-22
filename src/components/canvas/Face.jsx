@@ -156,9 +156,10 @@ useEffect(() => {
                         scaleVal = 0.06;
                     } else {
                         faceRef.current.lookAt(x, y + changeVal/15, 1);
-                        faceRef.current.position.y = faceRef.current.position.y + scaleVal * delta;
-                        faceRef.current.rotation.x = faceRef.current.rotation.x + scaleVal * 2 * delta;
+                        faceRef.current.position.y = faceRef.current.position.y + (scaleVal/100 * delta);
+                        faceRef.current.rotation.x = faceRef.current.rotation.x + (scaleVal/100 * 2 * delta);
                         scaleVal += -0.005;
+                        console.log(delta);
                         // faceRef.current.position.x = faceRef.current.position.x - 0.01;
                         changeVal++;
                     }
@@ -168,8 +169,8 @@ useEffect(() => {
                         scaleVal = 0.06;
                     } else {
                         faceRef.current.lookAt(x, y + changeVal/15, 1);
-                        faceRef.current.position.y = faceRef.current.position.y - scaleVal * delta;
-                        faceRef.current.rotation.x = faceRef.current.rotation.x - scaleVal * 2 * delta;
+                        faceRef.current.position.y = faceRef.current.position.y - (scaleVal/100 * delta/100);
+                        faceRef.current.rotation.x = faceRef.current.rotation.x - (scaleVal/100 * 2 * delta/100);
                         scaleVal += -0.005;
                         changeVal--;
                     }
@@ -182,7 +183,7 @@ useEffect(() => {
                         scaleVal = 0.06;
                     } else {
                         faceRef.current.lookAt(x, y + changeVal/15, 1);
-                        faceRef.current.position.y = faceRef.current.position.y + (scaleVal * 0.1 * delta);
+                        faceRef.current.position.y = faceRef.current.position.y + (scaleVal/100 * 0.1 * delta/100);
                         scaleVal += -0.005;
                         // faceRef.current.position.x = faceRef.current.position.x - 0.01;
                         changeVal++;
@@ -193,7 +194,7 @@ useEffect(() => {
                         scaleVal = 0.06;
                     } else {
                         faceRef.current.lookAt(x, y + changeVal/15, 1);
-                        faceRef.current.position.y = faceRef.current.position.y - (scaleVal * 0.1 * delta);
+                        faceRef.current.position.y = faceRef.current.position.y - (scaleVal/100 * 0.1 * delta/100);
                         scaleVal += -0.005;
                         changeVal--;
                     }
