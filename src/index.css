@@ -781,3 +781,23 @@ body {
   64% {height: 20px}
 
 }
+
+.star {
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 40px solid purple;
+      position: relative;
+    }
+    #star:after {
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 40px solid purple;
+      position: absolute;
+      content: "";
+      top: 30px;
+      left: -50px;
+}

@@ -3,6 +3,8 @@ import { useGLTF } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Html, useProgress } from '@react-three/drei'
 import { createContext, useContext, useState, useEffect } from 'react';
+import Confetti from 'react-confetti';
+
 
 export const LoadingContext = createContext(false); 
 
@@ -14,7 +16,10 @@ export default function DynamicCanvas() {
   const [loadingStatuses, setStatuses] = useState([true, ...Array(sections.length - 1).fill(false)]);
   const [noShow, setNoShow] = useState(false);
   const [mobile, setMobile] = useState(false);
- 
+  const [runConfetti, setRunConfetti] = useState(false);
+  const [conWidth, setWidth] = useState(window.innerWidth);
+  const [conHeight, setHeight] = useState(window.innerHeight);
+  
   //Scroll into view variable
   const [scrollToSection, setScrollToSection] = useState(0);
   
@@ -25,6 +30,18 @@ export default function DynamicCanvas() {
       setScrollToSection(scrollToSection + 1);
     }
   }
+
+  const handleResize = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    };
+  })
 
  useEffect(() => {
   const mediaQuery = window.matchMedia('(max-width: 500px)');
@@ -60,6 +77,10 @@ useEffect(() => {
   setTimeout(() => {
     setNoShow(true);
   }, 4000)
+  setTimeout(() => {
+    setRunConfetti(true);
+  }, 1450)
+
   for(let i = 0; i < sections.length; i++) {
     setTimeout(() => {
       setStatuses([...Array(j + 1).fill(true), ...Array(sections.length - j).fill(false)])
@@ -68,6 +89,7 @@ useEffect(() => {
   }
 }, [])
 
+
   //displayItems ? 'none' : 
   return (
     <div style={{overflowY: "hidden", overflowX: "hidden"}}>
@@ -75,7 +97,17 @@ useEffect(() => {
         <button className={"nextSectionButton"} style={{display: mobile ? "block" : "none",  textShadow: "2px 2px 5px black", borderRadius: "10px", padding: "5px", height: "10vh", backgroundColor: "#a1b4d4", top: "0vh", left: "0vw", position: "fixed", zIndex: 998}} onClick={() => handleClick()}>Next Section</button>
       </div> */}
       {/*displayItems ? "hiddenChicken" : */}
-       <div className={displayItems ? "hiddenChicken" : "loading"}  style={{overflow: "hidden", height: "100vh", position: "fixed", top: "0", left: "0", width: "100vw", backgroundColor: "white", zIndex: 999, overflowY: "hidden" }}>
+       <div className={displayItems ? "hiddenChicken" :"loading"}  style={{overflow: "hidden", height: "100vh", position: "fixed", top: "0", left: "0", width: "100vw", backgroundColor: "white", zIndex: 999, overflowY: "hidden" }}>
+       <Confetti style={{position: "absolute"}}
+          width={conWidth}
+          height={conHeight}
+          run={runConfetti}
+          numberOfPieces={8}
+          recycle={false}
+          confettiSource={mobile ?  {x: conWidth/2.4, y: conHeight/1.15} : {x: conWidth/2.2, y: conHeight/1.15}}
+          initialVelocityX={{min: -3, max: -5}}
+
+          />
         <h1 className="textLoading" style={{top: "50px"}}>
           <div className="first">Gener</div>
           <div className="second"> ating</div>
@@ -99,7 +131,10 @@ useEffect(() => {
           <div className="eyeleft"></div>
           <div className="eyeright"></div>
           <div className="beakTwo"></div>
+
         </div>
+
+        
       </div> 
       <div>
         <Navbar className={"textClass"}/>
