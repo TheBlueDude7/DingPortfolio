@@ -139,7 +139,7 @@ useEffect(() => {
 
     const { camera, mouse } = useThree()
     let scaleVal = 0;
-    useFrame(({viewport}, delta) => {
+    useFrame(({viewport, clock}, state, delta) => {
         var vector = new THREE.Vector3(mouseCoordsRef.current[0], mouseCoordsRef.current[1], 0.5);
         vector.unproject( camera );
         var dir = vector.sub( camera.position ).normalize();
@@ -148,59 +148,10 @@ useEffect(() => {
         const x = (pos.x * viewport.width) / 3;
         const y = (pos.y * viewport.height) / 2;
         if(isHovering) { 
-            if(!isMobile) {
-                if(goUp) {
-                    play();
-                    if(changeVal >= 1400 * delta) {
-                        setUp(false);
-                        scaleVal = 0.06;
-                    } else {
-                        faceRef.current.lookAt(x, y + changeVal/15, 1);
-                        faceRef.current.position.y = faceRef.current.position.y + (scaleVal/100 * delta);
-                        faceRef.current.rotation.x = faceRef.current.rotation.x + (scaleVal/100 * 2 * delta);
-                        scaleVal += -0.005;
-                        console.log(delta);
-                        // faceRef.current.position.x = faceRef.current.position.x - 0.01;
-                        changeVal++;
-                    }
-                } else {
-                    if(changeVal <= -1400 * delta) {
-                        setUp(true);
-                        scaleVal = 0.06;
-                    } else {
-                        faceRef.current.lookAt(x, y + changeVal/15, 1);
-                        faceRef.current.position.y = faceRef.current.position.y - (scaleVal/100 * delta/100);
-                        faceRef.current.rotation.x = faceRef.current.rotation.x - (scaleVal/100 * 2 * delta/100);
-                        scaleVal += -0.005;
-                        changeVal--;
-                    }
-                }
-            } else {
-                if(goUp) {
-                    play();
-                    if(changeVal >= 100 * delta) {
-                        setUp(false);
-                        scaleVal = 0.06;
-                    } else {
-                        faceRef.current.lookAt(x, y + changeVal/15, 1);
-                        faceRef.current.position.y = faceRef.current.position.y + (scaleVal/100 * 0.1 * delta/100);
-                        scaleVal += -0.005;
-                        // faceRef.current.position.x = faceRef.current.position.x - 0.01;
-                        changeVal++;
-                    }
-                } else {
-                    if(changeVal <= -100 * delta) {
-                        setUp(true);
-                        scaleVal = 0.06;
-                    } else {
-                        faceRef.current.lookAt(x, y + changeVal/15, 1);
-                        faceRef.current.position.y = faceRef.current.position.y - (scaleVal/100 * 0.1 * delta/100);
-                        scaleVal += -0.005;
-                        changeVal--;
-                    }
-                }
-            } 
-            
+            const a = Math.cos(clock.getElapsedTime() * 15)/2;
+            faceRef.current.position.y = faceRef.current.position.y + a/50;
+            faceRef.current.lookAt(x, y, 1);
+            play();
         } else {
             if(!isMobile) {
                 scaleVal = 0;
@@ -216,8 +167,7 @@ useEffect(() => {
                 faceRef.current.lookAt(x, (scrollPosition/951 - 1), 1);
             }
             
-        }   
-        
+        }     
     })
 
     return (

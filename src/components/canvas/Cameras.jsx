@@ -52,8 +52,8 @@ useFrame((t, delta) => {
       <ambientLight intensity={0.05} />
       <primitive ref={chickenRef}
         object={chicken.scene.clone()}
-        scale={isMobile ? 2.4 : 3.6}
-        position={isMobile ? [0, -0.5, -2] : [0, -0.75, -1.5]}
+        scale={isMobile ? 2.4 : visualViewport.width/450 + 0.1}
+        position={isMobile ? [0, -0.5, -2] : [0, visualViewport.height * - 1/850, -1.5]}
         rotation={[0, 2, 0]}
       />
     </mesh>
@@ -104,7 +104,7 @@ useFrame((t, delta) => {
       <ambientLight intensity={1}/>
       <primitive 
         object={camera.scene}
-        scale={isMobile ? 0.7 : 1}
+        scale={isMobile ? 0.7 : 1 + visualViewport.width/8000}
         position={isMobile ? [0, -1, -2.2] : [0, -1.5, -1.5]}
       />
     </mesh>
