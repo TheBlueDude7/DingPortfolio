@@ -103,7 +103,7 @@ useEffect(() => {
   //displayItems ? 'none' : 
   return (
     <>
-    <GoogleAnalytics trackPageViews TRACKING_ID={'G-GVNQ0FHHYE'}/>
+    <GoogleAnalytics trackPageViews TRACKING_ID={'G-GVNQ0FHHYE'} gaMeasurementId='G-GVNQ0FHHYE'/>
     <div style={{overflowY: "hidden", overflowX: "hidden"}}>
        {/* <div>
         <button className={"nextSectionButton"} style={{display: mobile ? "block" : "none",  textShadow: "2px 2px 5px black", borderRadius: "10px", padding: "5px", height: "10vh", backgroundColor: "#a1b4d4", top: "0vh", left: "0vw", position: "fixed", zIndex: 998}} onClick={() => handleClick()}>Next Section</button>
