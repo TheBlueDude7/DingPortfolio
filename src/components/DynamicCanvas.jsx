@@ -6,6 +6,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
 import ReactGA from 'react-ga';
 import Script from 'next/script'
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 
 export const LoadingContext = createContext(false); 
@@ -101,20 +102,9 @@ useEffect(() => {
 
   //displayItems ? 'none' : 
   return (
+    <>
+    <GoogleAnalytics trackPageViews TRACKING_ID={'G-GVNQ0FHHYE'}/>
     <div style={{overflowY: "hidden", overflowX: "hidden"}}>
-    <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-GVNQ0FHHYE"/>
-    <Script
-    id="google-analytics"
-    strategy="afterInteractive"
-    dangerouslySetInnerHTML={{
-      __html: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-GVNQ0FHHYE', {page_path: window.location.pathname, });
-      `,
-    }}
-/>
        {/* <div>
         <button className={"nextSectionButton"} style={{display: mobile ? "block" : "none",  textShadow: "2px 2px 5px black", borderRadius: "10px", padding: "5px", height: "10vh", backgroundColor: "#a1b4d4", top: "0vh", left: "0vw", position: "fixed", zIndex: 998}} onClick={() => handleClick()}>Next Section</button>
       </div> */}
@@ -175,6 +165,8 @@ useEffect(() => {
         )}
       </div>
     </div>
+    </>
+    
   )
 }
 
