@@ -4,11 +4,17 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Html, useProgress } from '@react-three/drei'
 import { createContext, useContext, useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
+import ReactGA from 'react-ga';
 
 
 export const LoadingContext = createContext(false); 
 
 export default function DynamicCanvas() {
+  const TRACKING_ID = "G-GVNQ0FHHY";
+  ReactGA.initialize(TRACKING_ID);
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  })
   const sections = [Experience, About, Tech, Feedbacks, Contact];
   const backgrounds = ["bg-head-pattern", "bg-great-pattern", "bg-chicken-pattern", "bg-about-pattern", "bg-ip-pattern"];
   const [finishedLoading, setLoading] = useState(false);
