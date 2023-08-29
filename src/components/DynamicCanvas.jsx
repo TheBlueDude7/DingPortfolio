@@ -6,7 +6,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
 import ReactGA from 'react-ga';
 import Script from 'next/script'
-import { GoogleAnalytics } from "nextjs-google-analytics";
+import { GoogleAnalytics, usePageViews } from "nextjs-google-analytics";
 
 
 export const LoadingContext = createContext(false); 
@@ -25,7 +25,6 @@ export default function DynamicCanvas() {
   const [mountLoading, setMountLoading] = useState(true);
   //Scroll into view variable
   const [scrollToSection, setScrollToSection] = useState(0);
-  
   function handleClick() {
     if(scrollToSection == 5) {
       setScrollToSection(0);
