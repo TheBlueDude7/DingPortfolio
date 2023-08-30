@@ -140,7 +140,7 @@ const Feedbacks = ({scrollToSection}) => {
       <BubblesCanvas setHidden={hideText}/>
       <div className="absolute">
         <h1 style={isMobile ? bigTextMobile : bigText}>Feedback</h1>
-        <h1 style={isMobile ? otherPeopleTextMobile : otherPeopleText}>Well, uh, don't just take my word for it! Check out these glowing reviews!</h1>
+        <h1 style={isMobile ? otherPeopleTextMobile : otherPeopleText}>Well, uh, don't just take my word for it! Click on a smiley to hear some feedback!</h1>
         <h1 className={hidden ? "hiddenText" : channelStyleChange}>Roger did great work with my website! - Leanza Liu</h1>
         <h1 className={hidden ? "hiddenText" : midStyleChange} >Roger? He's amazing, and efficient! - David Ding</h1>
         <h1 className={hidden ? "hiddenText" : rightStyleChange} >⭐⭐⭐⭐⭐! - Brandon West</h1>

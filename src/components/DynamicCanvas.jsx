@@ -12,8 +12,8 @@ import { GoogleAnalytics, usePageViews } from "nextjs-google-analytics";
 export const LoadingContext = createContext(false); 
 
 export default function DynamicCanvas() {
-  const sections = [Experience, About, Tech, Feedbacks, Contact];
-  const backgrounds = ["bg-head-pattern", "bg-great-pattern", "bg-chicken-pattern", "bg-about-pattern", "bg-ip-pattern"];
+  const sections = [About, Tech, Feedbacks, Contact];
+  const backgrounds = ["bg-great-pattern", "bg-chicken-pattern", "bg-about-pattern", "bg-ip-pattern"];
   const [finishedLoading, setLoading] = useState(false);
   const [displayItems, setDisplay] = useState(false);
   const [loadingStatuses, setStatuses] = useState([true, ...Array(sections.length - 1).fill(false)]);
@@ -147,6 +147,11 @@ useEffect(() => {
         <div className={"bg-hero-pattern bg-cover bg-no-repeat bg-center"}>
           <RenderInView>    
             <Hero scrollToSection={scrollToSection} setLoading={setLoading} noShow={noShow}/>
+          </RenderInView> 
+        </div>
+        <div className={"bg-head-pattern bg-cover bg-no-repeat bg-center"}>
+          <RenderInView>    
+            <Experience scrollToSection={scrollToSection} setLoading={setLoading} noShow={noShow}/>
           </RenderInView> 
         </div>
         
