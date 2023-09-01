@@ -151,7 +151,7 @@ useEffect(() => {
         </div>
         <div className={"bg-head-pattern bg-cover bg-no-repeat bg-center"}>
           <RenderInView>    
-            <Experience scrollToSection={scrollToSection} setLoading={setLoading} noShow={noShow}/>
+            <Experience/>
           </RenderInView> 
         </div>
         
