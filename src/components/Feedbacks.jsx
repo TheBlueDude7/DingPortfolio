@@ -86,7 +86,7 @@ const Feedbacks = ({scrollToSection}) => {
    //TextWhatOtherPeople
    const otherPeopleText = {
     position: "absolute",
-    fontSize: "18px",
+    fontSize: "26px",
     fontWeight: "bold",
     textShadow: "4px 4px 5px black",
     textAlign: "center",
@@ -107,7 +107,7 @@ const Feedbacks = ({scrollToSection}) => {
   const otherPeopleTextMobile = {
     color: "white",
     position: "absolute",
-    fontSize: "18px",
+    fontSize: "20px",
     fontWeight: "bold",
     textShadow: "4px 4px 5px black",
     textAlign: "center"

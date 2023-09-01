@@ -34,7 +34,7 @@ const Tech = ({scrollToSection}) => {
 
   const descriptionStyle = {
     color: "white",
-   fontSize: "20px",
+   fontSize: "25px",
     fontWeight: "bold",
     textShadow: "10px 2px 9px black",
     textAlign: "center"
