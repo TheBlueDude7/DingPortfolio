@@ -8,7 +8,7 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
 
 
-const Tech = ({scrollToSection}) => {
+const Tech = () => {
   
   const [isMobile, setMobile] = useState(false);
 
@@ -69,16 +69,8 @@ const Tech = ({scrollToSection}) => {
     textAlign: "center"
   };
 
-  const techRef = useRef(null);
-
-  useEffect(() => { 
-    if(scrollToSection == 3) {
-      techRef.current.scrollIntoView();
-    }
-  }, [scrollToSection])
-
   return (
-    <div ref={techRef} style={{scrollMarginTop: "10vh"}}>
+    <div style={{scrollMarginTop: "10vh"}}>
       <div className="flex flex-row flex-wrap justify-center" style={{height: 1000}}>
       <ChickensCanvas />
       <div className="absolute">
