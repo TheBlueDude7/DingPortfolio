@@ -173,7 +173,7 @@ const About = ({scrollToSection}) => {
           <h1 style={isMobile ? mystyleMobile : mystyle}>About Me</h1>
           <h1 style={isMobile ? middleStyleMobile : middleStyle}>My name is Roger Ding, I'm a student at UW Madison.</h1>
           <h1 style={isMobile ? secondStyleMobile : secondStyle}>{topText}</h1>
-          <h1 style={isMobile ? thirdStyleMobile : thirdStyle}>{beatText}</h1>
+          {!isMobile && <h1 style={isMobile ? thirdStyleMobile : thirdStyle}>{beatText}</h1>}
           {/* <h1 style={isMobile ? fourthStyleMobile : fourthStyle}> (Song is "If Heaven was a Sound" by Hotel Apache) </h1> */}
         </div>
         <HistoryCanvas stopAudio={stopAudio}/>

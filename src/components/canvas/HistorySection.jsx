@@ -30,7 +30,7 @@ const Chicken = ({isMobile, changeChicken}) => {
       <ambientLight intensity={0.05} />
       <primitive ref={chickenRef}
         object={chicken.scene.clone()}
-        scale={isMobile? 1 : 2}
+        scale={isMobile? 0 : 2}
         position={isMobile ? [0.2, -2, 1] : [1, 0, 1]}
         rotation={[0, 1.2, 0]}
       />
@@ -92,7 +92,7 @@ const Radio = ({isMobile, stopAudio, setChicken}) => {
       <spotLight intensity={1} position={[1, 0, 0]}/>
       <primitive onMouse
         object={radio.scene}
-        scale={isMobile ? 0.2 : 0.4}
+        scale={isMobile ? 0 : 0.4}
         position={isMobile ? [0, -2, 0] : [0.5, 0, 0]}
         rotation={[0, 0, 0]}
       />
