@@ -92,7 +92,6 @@ const Chickens = ({ isMobile, keyVal}) => {
 }
 
 const chickensCanvas = () => {
-  const { progress } = useProgress();
   const [isMobile, setMobile] = useState(false);
   const inView = useContext(InViewContext);
 
@@ -114,7 +113,6 @@ const chickensCanvas = () => {
   return (
     <>
     <Canvas   
-    dpr={inView ? window.devicePixelRatio : window.devicePixelRatio/10}
     antialias={false}
     >
       {/* Creates the chickens on the scene, fills an array and assigns them unique keys */}
